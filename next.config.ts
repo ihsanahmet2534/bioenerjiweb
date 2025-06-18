@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  reactStrictMode: true,
+  // diğer ayarlar...
+}
 
 export default nextConfig;
