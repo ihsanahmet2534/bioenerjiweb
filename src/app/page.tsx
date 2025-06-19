@@ -205,7 +205,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-white text-[color:var(--foreground)]">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         navScrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'
@@ -346,7 +346,7 @@ export default function Home() {
       {/* Hakkımızda Özeti */}
       <section id="about" className="section animate-fadein-soft">
         <h2 className="text-2xl md:text-3xl font-heading primary mb-4">Hakkımızda</h2>
-        <p className="text-lg md:text-xl w-full max-w-4xl text-justify">
+        <p className="text-lg md:text-xl w-full max-w-4xl text-justify text-[#1a237e]">
           Psikolog Mustafa Çobanoğlu, lisans eğitimini Bingöl Üniversitesi Psikoloji bölümünde tamamlamıştır. Meslek hayatına başladığı günden bu yana çocuk, ergen ve ailelerle çalışmakta, bireysel ihtiyaçlara yönelik danışmanlık hizmetleri sunmaktadır. Şu anda Özel Erzurum İnci Okulları'nda aktif olarak psikolog olarak görev yapmakta ve eğitim kurumundaki çocukların sosyal, duygusal ve akademik gelişimlerini desteklemektedir. Çocuklara yönelik olarak oyun danışmanlığı, resim analizi, dikkat testleri, zekâ testleri, gelişimsel testler, algı testleri ve okul olgunluğu testleri uygulamaktadır. Çocukların gelişimsel süreçlerini yakından takip ederek hem bireysel hem de aile temelli müdahalelerde bulunmaktadır.  Aynı zamanda ebeveyn danışmanlığı ve boşanma sürecinde olan ailelere yönelik boşanma danışmanlığı hizmetleri sunarak aile içi iletişimi güçlendirmeye destek olmaktadır. Çalışma alanları arasında bireysel danışmanlık, ergen danışmanlığı ve öğrenci koçluğu yer almakta; özellikle öfke kontrol problemleri, depresyon, obsesif kompulsif bozukluk (OKB) ve anksiyete konularında danışanlarına profesyonel destek sağlamaktadır.  Her bireyin yaşadığı zorluklara özgü, bilimsel temelli yöntemler kullanarak, psikolojik dayanıklılığın ve yaşam kalitesinin artırılmasını hedeflemektedir.
         </p>
       </section>
@@ -379,7 +379,7 @@ export default function Home() {
                   {service.sections.map((section, index) => (
                     <div key={section.title} className="border-b border-[#2a2a2a] last:border-b-0">
                       <button
-                        className="w-full text-left py-2 flex justify-between items-center text-[#e5e5e5] hover:text-[#5c6bc0] transition-colors"
+                        className="w-full text-left py-2 flex justify-between items-center text-[#1a237e] hover:text-[#5c6bc0] transition-colors"
                         onClick={() => {
                           const key = `${serviceIndex}-${index}`;
                           setOpenSections(prev => ({
@@ -398,7 +398,7 @@ export default function Home() {
                           openSections[`${serviceIndex}-${index}`] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                         }`}
                       >
-                        <p className="py-3 text-[#b0b0b0] text-base">
+                        <p className="py-3 text-[#1a237e] text-base">
                           {section.content}
                         </p>
                       </div>
@@ -433,14 +433,14 @@ export default function Home() {
                 {/* Accordion: Nedir? */}
                 <div className="border-b border-[#232323] last:border-b-0">
                   <button
-                    className="w-full text-left py-2 flex justify-between items-center text-[#e5e5e5] hover:text-[#5c6bc0] transition-colors"
+                    className="w-full text-left py-2 flex justify-between items-center text-[#1a237e] hover:text-[#5c6bc0] transition-colors"
                     onClick={() => setOpenChildTestSections(prev => ({ ...prev, nedir: !prev.nedir }))}
                   >
                     <span className="text-base font-medium">Nedir?</span>
                     <span className={`transform transition-transform duration-300 ${openChildTestSections.nedir ? 'rotate-180' : ''}`}>▼</span>
                   </button>
                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openChildTestSections.nedir ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}> 
-                    <p className="py-3 text-[#f3f4f6] text-base leading-relaxed">
+                    <p className="py-3 text-[#1a237e] text-base leading-relaxed">
                       Çocuklara yönelik değerlendirme testleri, gelişimsel süreçlerini anlamak, dikkat düzeylerini ölçmek ve bilişsel yeteneklerini değerlendirmek amacıyla kullanılan bilimsel araçlardır.
                     </p>
                   </div>
@@ -448,14 +448,14 @@ export default function Home() {
                 {/* Accordion: Uygulanan Testler */}
                 <div className="border-b border-[#232323] last:border-b-0">
                   <button
-                    className="w-full text-left py-2 flex justify-between items-center text-[#e5e5e5] hover:text-[#5c6bc0] transition-colors"
+                    className="w-full text-left py-2 flex justify-between items-center text-[#1a237e] hover:text-[#5c6bc0] transition-colors"
                     onClick={() => setOpenChildTestSections(prev => ({ ...prev, testler: !prev.testler }))}
                   >
                     <span className="text-base font-medium">Uygulanan Testler</span>
                     <span className={`transform transition-transform duration-300 ${openChildTestSections.testler ? 'rotate-180' : ''}`}>▼</span>
                   </button>
                   <div className={`overflow-hidden transition-all duration-300 ease-in-out ${openChildTestSections.testler ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}> 
-                    <ul className="py-3 list-disc pl-6 text-[#f3f4f6] space-y-1">
+                    <ul className="py-3 list-disc pl-6 text-[#1a237e] space-y-1">
                       <li>AGTE (Ankara Gelişim Tarama Envanteri)</li>
                       <li>Benton Görsel Bellek Testi</li>
                       <li>Metropolitan Okul Olgunluk Testi</li>
@@ -517,7 +517,7 @@ export default function Home() {
               </div>
               <div className="p-5 flex flex-col gap-2 flex-1">
                 <span className="inline-block px-4 py-2 rounded-xl bg-gradient-to-r from-[#3f51b5cc] to-[#5c6bc0cc] text-[#e8eaf6] font-semibold text-lg shadow-md mb-2" style={{letterSpacing: '0.01em', textShadow: '0 1px 4px #22306b22'}}>{blog.title}</span>
-                <p className="text-[#c5cae9] text-sm">{blog.desc}</p>
+                <p className="text-white text-sm">{blog.desc}</p>
               </div>
             </a>
           ))}
@@ -638,11 +638,11 @@ export default function Home() {
                 style={{ width: `${100 / reviewsPerPage}%` }}
               >
                 <div className="rounded-xl bg-[#181c23]/80 border border-[#232323] p-6 shadow-md">
-                  <p className="text-[#e5e5e5] mb-4 italic">"{review.quote}"</p>
+                  <p className="text-white mb-4 italic">"{review.quote}"</p>
                   <div className="flex justify-between items-center">
                     <div>
                       <p className="text-gold font-medium">{review.name}</p>
-                      <p className="text-[#b0b0b0] text-sm">{review.date}</p>
+                      <p className="text-white text-sm">{review.date}</p>
                     </div>
                     <div className="flex gap-1">
                       {Array.from({ length: review.stars }).map((_, i) => (
@@ -678,7 +678,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-6">
             <a 
               href="tel:+905347353676" 
-              className="flex items-center gap-3 text-white hover:text-gold transition-colors"
+              className="flex items-center gap-3 text-[#3949ab] hover:text-gold transition-colors"
             >
               <svg 
                 viewBox="0 0 24 24" 
@@ -689,11 +689,11 @@ export default function Home() {
               >
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
-              <span>+90 534 735 3676</span>
+              <span className="text-[#3949ab]">+90 534 735 3676</span>
             </a>
             <a 
               href="mailto:mustfcbnglu@gmail.com" 
-              className="flex items-center gap-3 text-white hover:text-gold transition-colors"
+              className="flex items-center gap-3 text-[#3949ab] hover:text-gold transition-colors"
             >
               <svg 
                 viewBox="0 0 24 24" 
@@ -705,7 +705,7 @@ export default function Home() {
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <path d="M22 6l-10 7L2 6"/>
               </svg>
-              <span>mustfcbnglu@gmail.com</span>
+              <span className="text-[#3949ab]">mustfcbnglu@gmail.com</span>
             </a>
           </div>
         </div>
