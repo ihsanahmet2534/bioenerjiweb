@@ -320,7 +320,7 @@ export default function Home() {
         <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Text Content */}
           <div className="text-center md:text-left md:flex-1">
-            <h1 className="text-4xl md:text-6xl font-heading mb-4">
+            <h1 className="text-4xl md:text-6xl font-heading mb-4 text-white" style={{color: '#fff'}}>
               Psikolog Mustafa Çobanoğlu
             </h1>
             <p className="text-xl md:text-2xl text-gold">
@@ -676,7 +676,7 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-heading text-white text-center mb-8">İletişim</h2>
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 mt-8">
-            <div className="flex items-center gap-3 px-6 py-4 rounded-xl border border-[#e3e6f3] bg-white shadow-sm min-w-[220px] justify-center">
+            <a href="tel:+905347353676" className="flex items-center gap-3 px-6 py-4 rounded-xl border border-[#e3e6f3] bg-white shadow-sm min-w-[220px] justify-center" style={{textDecoration: 'none'}}>
               <svg 
                 viewBox="0 0 24 24" 
                 fill="none" 
@@ -687,8 +687,8 @@ export default function Home() {
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
               </svg>
               <span className="text-[#3949ab] font-semibold text-lg">+90 534 735 3676</span>
-            </div>
-            <div className="flex items-center gap-3 px-6 py-4 rounded-xl border border-[#e3e6f3] bg-white shadow-sm min-w-[220px] justify-center">
+            </a>
+            <a href="mailto:mustfcbnglu@gmail.com" className="flex items-center gap-3 px-6 py-4 rounded-xl border border-[#e3e6f3] bg-white shadow-sm min-w-[220px] justify-center" style={{textDecoration: 'none'}}>
               <svg 
                 viewBox="0 0 24 24" 
                 fill="none" 
@@ -700,7 +700,7 @@ export default function Home() {
                 <path d="M22 6l-10 7L2 6"/>
               </svg>
               <span className="text-[#3949ab] font-semibold text-lg">mustfcbnglu@gmail.com</span>
-            </div>
+            </a>
           </div>
         </div>
       </section>
