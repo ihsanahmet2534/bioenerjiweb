@@ -709,27 +709,10 @@ export default function Home() {
       <footer className="py-12 text-center bg-[#1a237e]">
         <div className="max-w-4xl mx-auto px-4">
           {/* İletişim Bilgileri */}
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            {/* Adres */}
-            <div className="flex flex-col items-center gap-2">
-              <a
-                href="https://www.google.com/search?kgmid=%2Fg%2F11x2y3bjkl&hl=tr-TR&q=Psikolog%20Mustafa%20%C3%87obano%C4%9Flu&shndl=30&shem=lcuae%2Clspt4&source=sh%2Fx%2Floc%2Fosrp%2Fm5%2F3&kgs=c8a0aa5d22f05d0b"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full bg-[#283593] flex items-center justify-center mb-2 shadow-lg hover:bg-[#3949ab] transition-colors"
-              >
-                <svg className="w-6 h-6 text-[#e8eaf6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </a>
-              <h3 className="text-lg font-medium text-[#e8eaf6] font-sans">Adres</h3>
-              <p className="text-[#c5cae9] text-sm font-light">Lalapaşa Mah, Menderes Cad. Ergüney İş Merkezi Kat:3,</p>
-              <p className="text-[#c5cae9] text-sm font-light"> 25100 Yakutiye/Erzurum</p>
-            </div>
-
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* İletişim */}
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <h3 className="text-lg font-medium" style={{color: '#fff', fontFamily: 'Nunito, sans-serif', marginTop: '0.5rem'}}>İletişim</h3>
               <div className="flex gap-4">
                 <a href="tel:+905347353676" className="w-12 h-12 rounded-full bg-[#283593] flex items-center justify-center hover:bg-[#3949ab] transition-colors shadow-lg">
                   <svg className="w-6 h-6 text-[#e8eaf6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -742,13 +725,13 @@ export default function Home() {
                   </svg>
                 </a>
               </div>
-              <h3 className="text-lg font-medium text-[#e8eaf6] mt-2 font-sans">İletişim</h3>
-              <p className="text-[#c5cae9] text-sm font-light">+90 534 735 3676</p>
+              <p className="text-[#c5cae9] text-sm font-light mt-2">+90 534 735 3676</p>
               <p className="text-[#c5cae9] text-sm font-light">mustfcbnglu@gmail.com</p>
             </div>
 
             {/* Sosyal Medya */}
-            <div className="flex flex-col items-center gap-2">
+            <div className="flex flex-col items-center md:items-end gap-2">
+              <h3 className="text-lg font-medium" style={{color: '#fff', fontFamily: 'Nunito, sans-serif', marginTop: '0.5rem'}}>Sosyal Medya</h3>
               <div className="flex gap-4">
                 <a 
                   href="https://www.instagram.com/psk.mustafacobanoglu?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
@@ -775,8 +758,7 @@ export default function Home() {
                   </svg>
                 </a>
               </div>
-              <h3 className="text-lg font-medium text-[#e8eaf6] mt-2 font-sans">Sosyal Medya</h3>
-              <p className="text-[#c5cae9] text-sm font-light">Bizi takip edin</p>
+              <p className="text-[#c5cae9] text-sm font-light mt-2">Bizi takip edin</p>
             </div>
           </div>
 
