@@ -6,7 +6,7 @@ export default function BlogCezaHukuku() {
     <main className="flex flex-col items-center justify-center min-h-[70vh] py-12 px-2" style={{ fontFamily: 'Times New Roman, Times, serif' }}>
       {/* Sticky site header */}
       <div className="fixed top-0 left-0 w-full z-40 flex items-center justify-center py-3 bg-[#10131acc] backdrop-blur-md shadow-md" style={{fontFamily: 'Times New Roman, Times, serif'}}>
-        <span className="text-xl md:text-2xl gold font-bold tracking-wide select-none">Av. Dilşat Kanbur</span>
+        <span className="text-xl md:text-2xl gold font-bold tracking-wide select-none">Evrensel Yaşam Enerjisi Merkezi</span>
       </div>
       <div className="w-full max-w-2xl bg-[#181c23cc] rounded-2xl shadow-2xl p-8 md:p-12 flex flex-col items-center mt-16" style={{ backdropFilter: 'blur(4px)' }}>
         {/* Blog image area */}
@@ -19,7 +19,7 @@ export default function BlogCezaHukuku() {
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
           />
         </div>
-        <h1 className="text-3xl gold mb-2 text-center">Ceza Hukukunda Savunma Hakkı</h1>
+        <h1 className="text-3xl gold mb-2 text-center">Enerjiyle Arınma: Doğal Denge ve Huzur</h1>
         <div className="text-[#b0b0b0] text-sm mb-6">Yayın Tarihi: 10 Mayıs 2024</div>
         <article className="prose prose-invert max-w-none w-full" style={{ color: '#f8f8f5' }}>
           <p>Ceza hukuku davalarında savunma hakkı, adil yargılanmanın temel unsurudur. Her bireyin kendini savunma ve hukuki yardım alma hakkı anayasal güvence altındadır.</p>

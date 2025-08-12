@@ -2,32 +2,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fff;
-  --foreground: #1a237e;
-  --accent-blue: #3949ab;
-  --accent-light: #c5cae9;
-  --nav-bg: rgba(26, 35, 126, 0.7);
-  --nav-bg-scrolled: rgba(26, 35, 126, 0.95);
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: 'Nunito', sans-serif;
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #1a237e;
-    --foreground: #e8eaf6;
-  }
+  --background: #f0f8ff;
+  --foreground: #222;
+  --accent-green: #3b82f6;
+  --accent-orange: #60a5fa;
+  --accent-light: #dbeafe;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+  --gradient-main: linear-gradient(120deg, #3b82f6 0%, #60a5fa 100%);
 }
 
 html, body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  background: var(--background);
+  background: transparent;
   color: var(--foreground);
   font-family: 'Nunito', sans-serif;
   margin: 0;
@@ -38,77 +24,228 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Nunito', sans-serif;
-  color: #1a237e;
+  color: var(--accent-green);
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 a {
-  color: var(--accent-light);
+  color: var(--accent-green);
   text-decoration: none;
   transition: color 0.2s;
 }
 a:hover {
-  color: var(--accent-blue);
+  color: var(--accent-orange);
 }
 
 .section {
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.5rem 3rem 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.gold, .bg-gold {
-  color: var(--accent-light) !important;
-  background: var(--accent-blue) !important;
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 #3b82f611;
+  padding: 2rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px 0 #3b82f622;
+  transform: translateY(-4px) scale(1.02);
 }
 
-.bg-gold {
-  color: var(--background) !important;
+.button-modern {
+  background: var(--gradient-main);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 1.25rem;
+  box-shadow: 0 2px 16px 0 #3b82f622;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
+}
+.button-modern:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 6px 32px 0 #3b82f633;
+  background: linear-gradient(120deg, #60a5fa 0%, #3b82f6 100%);
+}
+
+.hero-gradient {
+  background: var(--gradient-main);
+  color: #fff;
+}
+
+img, .rounded-xl, .rounded-2xl, .rounded-lg {
+  border-radius: 1.5rem !important;
 }
 
 ::-webkit-scrollbar {
   width: 8px;
-  background: #283593;
+  background: var(--accent-light);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--accent-blue);
+  background: var(--accent-green);
   border-radius: 4px;
 }
 
-.button-modern {
-  background: var(--accent-blue);
-  color: #e8eaf6;
-  padding: 0.75rem 2rem;
-  border-radius: 9999px;
-  font-weight: 600;
-  font-size: 1.125rem;
-  box-shadow: 0 2px 16px 0 #0003;
-  transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s cubic-bezier(.4,0,.2,1);
+/* Hide scrollbar for horizontal scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
 }
-.button-modern:hover {
-  transform: scale(1.06) translateY(-2px);
-  box-shadow: 0 6px 32px 0 #0005;
-  background: var(--accent-light);
-  color: var(--background);
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
 }
 
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, #1a237e 60%, #283593 100%);
-  opacity: 0.82;
-  z-index: 1;
+/* Video Performance Optimizations */
+video {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+  will-change: auto;
 }
 
-.hero-content {
+/* Hardware acceleration for video */
+.video-container {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+body { 
+  border: none !important; 
+  background: transparent !important;
+}
+
+/* Zoom animasyonu */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hero text animasyonları */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-text-enter {
+  animation: fadeInUp 0.8s ease-out;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-text-exit {
+  animation: fadeInDown 0.8s ease-out;
+}
+
+/* Sertifika hover efektleri */
+.certificate-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.certificate-item {
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-.hero-portrait-modern {
-  box-shadow: 0 8px 32px 0 #0007;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  border: 4px solid #222;
-  background: #283593cc;
+.certificate-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+}
+
+.certificate-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.certificate-item:hover img {
+  transform: scale(1.1);
+}
+
+.certificate-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.certificate-item:hover .certificate-overlay {
+  transform: translateY(0);
+}
+
+/* Modal animasyonları */
+.modal-backdrop {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }

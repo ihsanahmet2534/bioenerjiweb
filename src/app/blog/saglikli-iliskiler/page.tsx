@@ -1,212 +1,208 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
 
-export default function RelationshipsBlogPage() {
-  // Sayfa yüklendiğinde yukarıdan aşağıya doğru animasyon
-  useEffect(() => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
+export default function MeditasyonKozmikBlog() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Hero Section */}
-      <div className="relative h-[50vh] w-full">
-        <Image
-          src="/blog-relationships.jpg"
-          alt="Sağlıklı İlişkiler"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center max-w-4xl px-4">
-            <h1 className="text-4xl md:text-5xl font-heading mb-4 animate-fade-in">
-              Sağlıklı İlişkilerin Temelleri
-            </h1>
+    <div className="min-h-screen bg-[var(--background)]">
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        {/* Header */}
+        <div className="mb-8">
+          <Link href="/" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors">
+            ← Ana Sayfaya Dön
+          </Link>
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--accent-green)] mt-6 mb-4">
+            Meditasyon ve Kozmik Farkındalık
+          </h1>
+          <div className="flex items-center gap-4 text-gray-600">
+            <span>6 dakika okuma</span>
+            <span>•</span>
+            <span>Meditasyon</span>
+            <span>•</span>
+            <span>Kozmik Farkındalık</span>
           </div>
         </div>
-      </div>
 
-      {/* Kullanıcıdan gelen yazı */}
-      <div className="max-w-4xl mx-auto px-4 pt-12 pb-4 text-lg text-white">
-        <p>İnsanlar sosyal varlıklardır ve yaşam boyu ilişki kurma, sevme ve sevilme ihtiyacı taşırız. Ancak her ilişki dengeli, besleyici ve sürdürülebilir olmayabilir. Bu yazıda, sağlıklı bir ilişkiyi ayakta tutan en önemli yapıtaşlarını psikolojik perspektiften ele alacak, hem çiftler hem de genel bağlamda uygulanabilir somut öneriler sunacağım.</p>
-        <ol className="list-decimal pl-6 my-6 space-y-4">
-          <li>
-            <strong>Etkili İletişim ve Empati</strong>
-            <ul className="list-disc pl-6 mt-2">
-              <li><strong>Aktif Dinleme:</strong> Karşınızdaki kişinin söylediklerine tam odaklanın. Sözünü kesmeden dinlemek, duygularını ve beklentilerini anlamak için sorular sorun.</li>
-              <li><strong>Ben Dili Kullanımı:</strong> “Sen hep geç kalıyorsun” yerine “Geç kaldığında beklemek beni üzüyor” demek, savunmayı azaltır ve duygularınızı net kılar.</li>
-              <li><strong>Empatik Yansıtma:</strong> Partnerinizin hislerini doğru anladığınızı göstermek için “Önemli bir konu hakkında kaygılandığını hissediyorum” gibi cümleler kurun.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Güven İnşa Etme</strong>
-            <ul className="list-disc pl-6 mt-2">
-              <li><strong>Tutarlılık:</strong> Söz ve davranışlarınız birbiriyle örtüşmeli. Verdiğiniz sözleri tutmak, karşılıklı güvenin en temel göstergesidir.</li>
-              <li><strong>Şeffaflık:</strong> Duygularınızı, endişelerinizi ve beklentilerinizi açıkça paylaşın. Gizlenen duygular zamanla güvensizlik yaratır.</li>
-              <li><strong>Affetme ve Hoşgörü:</strong> Hatalar olabilir; önemli olan bunları yapıcı bir biçimde ele alıp ilerleyebilmektir.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Sağlıklı Sınırlar ve Özerklik</strong>
-            <ul className="list-disc pl-6 mt-2">
-              <li><strong>Kişisel Alan ve Zaman:</strong> Her bireyin yalnız kalmaya, hobilerine ve arkadaşlarına vakit ayırmaya ihtiyacı vardır. Bu ihtiyaçların saygı gördüğü ilişkilerde memnuniyet artar.</li>
-              <li><strong>“Hayır” Diyebilme Cesareti:</strong> Karşı tarafa “hayır” demek, haklarınızı ve ihtiyaçlarınızı korumak adına gereklidir. Örneğin, yorgun olduğunuz bir günde ek sorumluluk almamak hakkınızdır.</li>
-              <li><strong>Karşılıklı Sorumluluk:</strong> İlişkiyi sürdüren her iki taraf da duygusal emek ve katkı sağlar.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Ortak Değerler ve Amaçlar</strong>
-            <ul className="list-disc pl-6 mt-2">
-              <li><strong>Temel İnançları Paylaşma:</strong> Aile, kariyer, çocuk eğitimi, finansal konular gibi hayattaki büyük tercihlerde uyum; çatışmaları azaltır.</li>
-              <li><strong>Ortak Hedefler Belirleme:</strong> Kısa ve uzun vadeli hedefleri beraberce planlamak (“Bir ev almak”, “Yılda en az bir tatil yapmak”) bağları güçlendirir.</li>
-              <li><strong>Esnek Beklentiler:</strong> Hayat dinamiktir; ortak amaçlar zamanla güncellenmeli ve esnek yaklaşılmalıdır.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Sürekli Çaba ve Öğrenme</strong>
-            <ul className="list-disc pl-6 mt-2">
-              <li><strong>İlişki Eğitimi:</strong> Kitap okumak, çift terapisi veya ilişki atölyelerine katılmak; iletişim becerilerini ve ilişki doyumunu artırır.</li>
-              <li><strong>Düzenli “İlişki Bakımı”:</strong> Hafta sonu yürüyüşü, aylık “ilişki değerlendirme” sohbetleri gibi ritüeller oluşturun.</li>
-              <li><strong>Küçük Jestler:</strong> Gün içinde kısa mesaj, çiçek, kahve sürprizi gibi küçük ama anlamlı davranışlar, bağlılığı besler.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>Çatışma Yönetimi</strong>
-            <ul className="list-disc pl-6 mt-2">
-              <li><strong>Yapıcı Tartışma:</strong> Sorunu değil, çözümü odak alın. “Sen” yerine “Biz” dilini kullanın: “Bu konuda birlikte nasıl ilerleyebiliriz?”</li>
-              <li><strong>Sakin Kalabilme Teknikleri:</strong> Derin nefes, 10’a kadar sayma veya tanıdık bir kelime tekrarlama, duyguların kontrolden çıkmasını önler.</li>
-              <li><strong>Ara Veri Noktaları:</strong> Tartışma büyüdüğünde “5 dakika ara” istemek, tekrar huzurlu hali yakalamayı kolaylaştırır.</li>
-            </ul>
-          </li>
-        </ol>
-        <p className="mb-4"><strong>Sonuç</strong><br/>Sağlıklı bir ilişki, tesadüfi değil, özenle inşa edilen bir yapıdır. İletişim, güven, sınırlar, ortak değerler, sürekli çaba ve etkin çatışma yönetimi bir araya geldiğinde; karşımıza doyurucu ve kalıcı bir bağ çıkar. Unutmayın, en güçlü ilişkiler bile emek ister; attığınız her yapıcı adım, sevgi dolu bir gelecek inşa etmenize katkı sağlar.</p>
-        <div className="mt-6">
-          <strong>Kaynakça ve Öneriler:</strong>
-          <ul className="list-disc pl-6 mt-2">
-            <li>Gottman, J. & Silver, N. (2015). The Seven Principles for Making Marriage Work.</li>
-            <li>Perel, E. (2017). The State of Affairs: Rethinking Infidelity.</li>
-            <li>Rosenberg, M. B. (2015). Nonviolent Communication: A Language of Life.</li>
-          </ul>
+        {/* Featured Image */}
+        <div className="mb-8">
+          <img 
+            src="/blog-confidence.jpg" 
+            alt="Meditasyon ve Kozmik Farkındalık" 
+            className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+          />
         </div>
-      </div>
 
-      {/* İçerik */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Geri Dönüş Linki */}
-        <Link 
-          href="/#blogs" 
-          className="inline-block mb-8 text-gold hover:text-white transition-colors duration-300"
-        >
-          ← Blog Yazılarına Dön
-        </Link>
+        {/* Content */}
+        <article className="prose prose-lg max-w-none">
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              Meditasyon, zihnimizi sakinleştirerek kozmik enerji akışını dengelememizi sağlayan güçlü bir araçtır. Bu antik uygulama, modern yaşamın karmaşasından uzaklaşarak içsel huzuru ve ruhsal farkındalığı keşfetmemize yardımcı olur.
+            </p>
 
-        {/* Makale İçeriği */}
-        <article className="prose prose-invert prose-lg max-w-none">
-          <div className="animate-on-scroll opacity-0 translate-y-8 mb-10">
-            <h2 className="text-2xl md:text-3xl font-heading text-gold mb-6">
-              İlişkilerde Sağlıklı İletişimin Önemi
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Meditasyon ve Kozmik Enerji Bağlantısı
             </h2>
-            <p className="mb-6">
-              Sağlıklı ve uzun ömürlü ilişkilerin temelinde etkili iletişim yatar. İyi bir 
-              iletişim, karşılıklı anlayış, saygı ve güven oluşturmanın anahtarıdır.
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Meditasyon sırasında zihnimiz sakinleşir ve evrenden gelen kozmik enerji ile daha derin bir bağlantı kurarız. Bu bağlantı, bedenimizin enerji merkezlerini (çakraları) dengeler ve yaşam gücümüzü artırır.
             </p>
-          </div>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              Sağlıklı İlişkilerin Özellikleri
-            </h3>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Açık ve dürüst iletişim</li>
-              <li>Karşılıklı saygı ve güven</li>
-              <li>Sınırların farkında olma ve bunlara saygı gösterme</li>
-              <li>Empati ve anlayış</li>
-              <li>Özerklik ve bireyselliğe saygı</li>
-            </ul>
-          </div>
-
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              İlişkilerde Yaşanan Zorluklar
-            </h3>
-            <p className="mb-4">
-              İlişkilerde karşılaşılan yaygın zorluklar ve çözüm önerileri:
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Kozmik Farkındalık Nedir?
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Kozmik farkındalık, evrenin büyük planının bir parçası olduğumuzu anlamak ve bu bilinçle yaşamaktır. Bu farkındalık, meditasyon pratikleriyle geliştirilir ve bize daha derin bir anlayış kazandırır.
             </p>
-            <ol className="list-decimal pl-6 mb-6">
-              <li className="mb-3">
-                <strong className="text-gold">İletişim Eksikliği:</strong> Düzenli ve 
-                anlamlı diyaloglar kurarak çözülebilir.
-              </li>
-              <li className="mb-3">
-                <strong className="text-gold">Güven Sorunları:</strong> Şeffaflık ve 
-                tutarlı davranışlarla aşılabilir.
-              </li>
-              <li className="mb-3">
-                <strong className="text-gold">Çatışma Yönetimi:</strong> Yapıcı tartışma 
-                teknikleri öğrenilebilir.
-              </li>
-              <li className="mb-3">
-                <strong className="text-gold">Beklenti Farklılıkları:</strong> Açık 
-                iletişim ve uzlaşma ile çözülebilir.
-              </li>
-            </ol>
-          </div>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              İlişkileri Güçlendirme Yöntemleri
-            </h3>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Düzenli kaliteli zaman geçirme</li>
-              <li>Aktif dinleme pratiği yapma</li>
-              <li>Takdir ve minnettarlık ifade etme</li>
-              <li>Ortak hedefler belirleme</li>
-              <li>Bireysel gelişime destek olma</li>
-            </ul>
-          </div>
-
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              Profesyonel Destek Ne Zaman Gerekli?
-            </h3>
-            <p className="mb-6">
-              İlişki danışmanlığı, çiftlerin yaşadığı zorlukları aşmada profesyonel destek 
-              sunar. Şu durumlarda danışmanlık almak faydalı olabilir:
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Meditasyon Teknikleri
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Kozmik enerji ile bağlantı kurmak için kullanabileceğiniz çeşitli meditasyon teknikleri:
             </p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>İletişim kopukluğu yaşandığında</li>
-              <li>Çözülemeyen çatışmalar olduğunda</li>
-              <li>Güven sorunları yaşandığında</li>
-              <li>İlişkiyi güçlendirmek istendiğinde</li>
-              <li>Önemli yaşam değişikliklerinde</li>
-            </ul>
-          </div>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="bg-[var(--accent-light)] p-6 rounded-xl">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-3">Nefes Odaklı Meditasyon</h4>
+                <p className="text-gray-700">Nefesinizi takip ederek zihninizi sakinleştirin ve kozmik enerji akışını hissedin.</p>
+              </div>
+              <div className="bg-[var(--accent-light)] p-6 rounded-xl">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-3">Çakra Meditasyonu</h4>
+                <p className="text-gray-700">Enerji merkezlerinizi dengeleyerek kozmik enerji akışını optimize edin.</p>
+              </div>
+              <div className="bg-[var(--accent-light)] p-6 rounded-xl">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-3">Mantra Meditasyonu</h4>
+                <p className="text-gray-700">Kutsal sesler ve mantralarla kozmik enerji ile bağlantı kurun.</p>
+              </div>
+              <div className="bg-[var(--accent-light)] p-6 rounded-xl">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-3">Doğa Meditasyonu</h4>
+                <p className="text-gray-700">Doğanın kozmik enerjisiyle birleşerek ruhsal yenilenme yaşayın.</p>
+              </div>
+            </div>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Meditasyonun Kozmik Faydaları
+            </h2>
+            
+            <ul className="space-y-3 mb-6 text-gray-700">
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Kozmik enerji akışını dengeler</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Ruhsal farkındalığı artırır</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>İçsel huzuru sağlar</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Sezgisel yetenekleri geliştirir</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Evrensel bilinçle bağlantı kurar</span>
+              </li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Günlük Meditasyon Pratikleri
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Kozmik farkındalığınızı geliştirmek için günlük meditasyon pratikleri:
+            </p>
+
+            <div className="bg-[var(--accent-light)] p-6 rounded-xl mb-6">
+              <h4 className="font-semibold text-[var(--accent-green)] mb-3">Sabah Meditasyonu</h4>
+              <p className="text-gray-700">Güne başlarken 15-20 dakika meditasyon yaparak kozmik enerji ile bağlantı kurun.</p>
+            </div>
+
+            <div className="bg-[var(--accent-light)] p-6 rounded-xl mb-6">
+              <h4 className="font-semibold text-[var(--accent-green)] mb-3">Akşam Meditasyonu</h4>
+              <p className="text-gray-700">Günün sonunda meditasyon yaparak zihninizi sakinleştirin ve kozmik enerjiyi içinize çekin.</p>
+            </div>
+
+            <div className="bg-[var(--accent-light)] p-6 rounded-xl mb-6">
+              <h4 className="font-semibold text-[var(--accent-green)] mb-3">Mikro Meditasyonlar</h4>
+              <p className="text-gray-700">Gün boyunca 2-3 dakikalık kısa meditasyonlar yaparak kozmik bağlantınızı koruyun.</p>
+            </div>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Kozmik Farkındalık Geliştirme
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Kozmik farkındalığınızı geliştirmek için:
+            </p>
+
+            <ul className="space-y-3 mb-6 text-gray-700">
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Doğanın ritmini takip edin</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Yıldızları ve ayı gözlemleyin</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Sezgilerinizi dinleyin</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-1 flex-shrink-0">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span>Evrensel bilgelik kitapları okuyun</span>
+              </li>
+            </ul>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
               Sonuç
-            </h3>
-            <p className="mb-6">
-              Sağlıklı ilişkiler emek ve özen gerektirir. Doğru iletişim teknikleri, 
-              karşılıklı anlayış ve gerektiğinde profesyonel destek ile ilişkilerinizi 
-              güçlendirebilir ve daha mutlu bir birliktelik yaşayabilirsiniz.
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Meditasyon ve kozmik farkındalık, evrenin büyük planının bir parçası olduğumuzu anlamamızı sağlar. Bu uygulamalar sayesinde hem içsel huzuru hem de ruhsal gelişimi deneyimleyebiliriz. Kozmik Enerji Merkezi olarak, bu derin yolculukta size rehberlik ediyoruz.
             </p>
+
+            <div className="bg-[var(--accent-light)] p-6 rounded-xl mt-8">
+              <h3 className="text-xl font-semibold text-[var(--accent-green)] mb-4">
+                Meditasyon ve Nefes Koçluğu Hizmetimiz
+              </h3>
+              <p className="text-gray-700 mb-4">
+                Profesyonel meditasyon ve nefes koçluğu seanslarımızla kozmik farkındalığınızı geliştirin. Uzman rehberliğinde bu derin yolculuğa çıkın.
+              </p>
+              <Link 
+                href="/#contact" 
+                className="button-modern inline-block"
+              >
+                Meditasyon Seansı İçin Randevu Al
+              </Link>
+            </div>
           </div>
         </article>
+
+
       </div>
-    </main>
+    </div>
   );
 } 

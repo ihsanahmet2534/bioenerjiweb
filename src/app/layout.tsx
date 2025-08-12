@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Psikolog Mustafa Çobanoğlu",
-  description: "Psikolog Mustafa Çobanoğlu - Bireysel, aile ve çocuk danışmanlığı hizmetleri.",
+  title: "Bioenerji ile Doğanın Şifası - Evrensel Yaşam Enerjisi Merkezi",
+  description: "Bioenerji uzmanı ile evrenin enerjisini keşfedin. Doğayla buluşun, nefes alın, huzuru ve içsel ferahlığı yaşayın. Beden, zihin ve ruh için bütünsel şifa!",
   icons: {
     icon: "/favicon.ico",
   },
@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="tr">
       <head />
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-transparent`}
       >
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-16992672093"

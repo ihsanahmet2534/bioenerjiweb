@@ -1,199 +1,149 @@
 'use client';
-import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect } from 'react';
 
-export default function AnxietyBlogPage() {
-  // Sayfa yüklendiğinde yukarıdan aşağıya doğru animasyon
-  useEffect(() => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate-in');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    elements.forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
+export default function NefesKocluguBlog() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Hero Section */}
-      <div className="relative h-[50vh] w-full">
-        <Image
-          src="/blog-anxiety.jpg"
-          alt="Kaygı ve Stres"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-          <div className="text-center max-w-4xl px-4">
-            <h1 className="text-4xl md:text-5xl font-heading mb-4 animate-fade-in">
-              Kaygı ve Stresle Başa Çıkma Yöntemleri
-            </h1>
+    <div className="min-h-screen bg-[var(--background)]">
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        {/* Header */}
+        <div className="mb-8">
+          <Link href="/" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors">
+            ← Ana Sayfaya Dön
+          </Link>
+          <h1 className="text-4xl md:text-5xl font-bold text-[var(--accent-green)] mt-6 mb-4">
+            Kozmik Enerji, Biyoenerji, Nefes, Meditasyon ve EFT: Holistik Şifanın Kapsamlı Gücü
+          </h1>
+          <div className="flex items-center gap-4 text-gray-600">
+            <span>5 dakika okuma</span>
+            <span>•</span>
+            <span>Kozmik Enerji</span>
+            <span>•</span>
+            <span>Nefes Koçluğu</span>
           </div>
         </div>
-      </div>
 
-      {/* İçerik */}
-      <div className="max-w-4xl mx-auto px-4 py-12">
-        {/* Geri Dönüş Linki */}
-        <Link 
-          href="/#blogs" 
-          className="inline-block mb-8 text-gold hover:text-white transition-colors duration-300"
-        >
-          ← Blog Yazılarına Dön
-        </Link>
+        {/* Featured Image */}
+        <div className="mb-8">
+          <img 
+            src="/blog-anxiety.jpg" 
+            alt="Nefes Koçluğu ve Kozmik Enerji" 
+            className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+          />
+        </div>
 
-        {/* Makale İçeriği */}
-        <article className="prose prose-invert prose-lg max-w-none py-12">
-          {/* Kullanıcıdan gelen yeni içerik */}
-          <div className="mb-10 mt-8 text-white">
-            <p>Günümüz dünyasında neredeyse herkesin ortaklaştığı bir deneyim varsa, o da kaygı ve stres. Yoğun iş temposu, belirsizlikler, sosyal ilişkiler ve içsel beklentiler zaman zaman hepimizi zorlayabilir. Ancak önemli olan, bu duyguların farkında olmak ve onlarla sağlıklı yollarla başa çıkabilmektir. Psikolog olarak bu yazımda, bilimsel temellere dayanan ve günlük hayatta kolaylıkla uygulanabilecek kaygı ve stresle başa çıkma yöntemlerini sizlerle paylaşmak istiyorum.</p>
-            <h3>1. Kaygıyı ve Stresi Tanımak: Baş Etmenin İlk Adımı</h3>
-            <p>Kaygı ve stres, tehdit ya da baskı algısı karşısında bedenimizin verdiği doğal tepkilerdir. Ancak bu tepkiler süreklilik kazandığında, uyum sağlayıcı olmaktan çıkıp yaşam kalitesini düşüren bir hale gelebilir.</p>
-            <ul>
-              <li>Kaygı, geleceğe yönelik belirsizlikler karşısında hissedilen zihinsel gerilimdir.</li>
-              <li>Stres ise dışsal bir olay ya da durum karşısında bedenin ve zihnin gösterdiği tepkidir.</li>
-            </ul>
-            <p>Bu farkı bilmek, neyle mücadele ettiğimizi anlamamıza yardımcı olur.</p>
-            <h3>2. Nefes ve Bedensel Farkındalık Egzersizleri</h3>
-            <p>Vücudumuz kaygı anında "savaş ya da kaç" tepkisine girer. Kalp atışı hızlanır, nefes yüzeyselleşir. Bu durumda nefesimizi bilinçli bir şekilde düzenlemek, sinir sistemimizi sakinleştirmede çok etkilidir.</p>
-            <p><strong>Diyafram Nefesi Egzersizi (4-4-6 Tekniği):</strong></p>
-            <ul>
-              <li>4 saniye boyunca burundan derin nefes al</li>
-              <li>4 saniye tut</li>
-              <li>6 saniye boyunca ağızdan yavaşça ver</li>
-            </ul>
-            <p>Günde 2-3 kez, 3-5 dakika bu egzersizi yapmak bile sinir sisteminizi dengelemeye başlayacaktır.</p>
-            <h3>3. Düşüncelerle Çalışmak: Kaygıyı Tetikleyen Zihinsel Kalıplar</h3>
-            <p>Kaygının temelinde çoğu zaman olumsuz otomatik düşünceler yatar. Bunlar genellikle şu kalıplarla karşımıza çıkar:</p>
-            <ul>
-              <li>"Ya hata yaparsam..."</li>
-              <li>"Kesin kötü bir şey olacak..."</li>
-              <li>"Yeterince iyi değilim..."</li>
-            </ul>
-            <p><strong>Ne yapmalı?</strong><br/>Bu düşünceleri fark edip sorgulamak, kaygının etkisini azaltır. Kendinize şu soruları sorun:</p>
-            <ul>
-              <li>"Bu düşüncenin kanıtı ne?"</li>
-              <li>"Bu düşünceyi bir arkadaşım kurmuş olsaydı, ona ne söylerdim?"</li>
-            </ul>
-            <p>Bu tür bilişsel yeniden yapılandırma teknikleri, Bilişsel Davranışçı Terapi (BDT) temelli etkili yöntemlerdir.</p>
-            <h3>4. Günlük Rutinlere Küçük ve Anlamlı Molalar Eklemek</h3>
-            <p>Gün içinde 5-10 dakikalık küçük molalar vermek, zihninizi dinlendirmek açısından oldukça faydalıdır.</p>
-            <ul>
-              <li>Kısa yürüyüşler</li>
-              <li>Meditasyon veya mindfulness uygulamaları</li>
-              <li>Sıcak bir içecek eşliğinde birkaç dakikalık sessizlik</li>
-            </ul>
-            <p>gibi basit uygulamalar bile zihinsel dayanıklılığı artırabilir.</p>
-            <h3>5. Uyku, Beslenme ve Hareketin Gücünü Hafife Almayın</h3>
-            <p>Stres altında olan bir bedenin bağışıklık sistemi de zihinsel dayanıklılığı da zayıflar. Bu yüzden:</p>
-            <ul>
-              <li>Günde en az 7 saat uyku</li>
-              <li>Düzenli ve dengeli beslenme (özellikle B vitamini, magnezyum ve omega-3 açısından zengin gıdalar)</li>
-              <li>Haftada en az 3 gün, 30 dakika fiziksel aktivite</li>
-            </ul>
-            <p>beden-zihin dengenizi güçlendirir.</p>
-            <h3>6. Ne Zaman Destek Almalıyım?</h3>
-            <p>Kaygı ve stres zaman zaman hepimizin yaşadığı bir deneyimdir. Ancak bu duygular:</p>
-            <ul>
-              <li>Günlük işlevlerinizi etkiliyorsa,</li>
-              <li>Uyku düzeninizi bozuyorsa,</li>
-              <li>Sürekli bir huzursuzluk haline geldiyse</li>
-            </ul>
-            <p>Bir uzmandan destek almak en doğru adım olacaktır.</p>
-            <h3>Sonuç: Kaygı Yönetilebilir Bir Duygudur</h3>
-            <p>Stresli ya da kaygılı hissetmek sizi zayıf yapmaz. Aksine, bu duyguları fark etmek ve onlarla başa çıkmak için adım atmak, psikolojik dayanıklılığın ilk göstergesidir. Unutmayın, bazen sadece birkaç küçük değişiklik, büyük farklar yaratabilir.</p>
-            <p>Duygularınızı yönetmekte zorlandığınızda profesyonel destek almak bir lüks değil, ihtiyaçtır.</p>
-            <p>Siz de kaygı ve stresle başa çıkmakta zorlanıyorsanız, danışmanlık almak için benimle iletişime geçebilirsiniz.</p>
-          </div>
+        {/* Content */}
+        <article className="prose prose-lg max-w-none">
+          <div className="bg-white p-8 rounded-2xl shadow-lg">
+            <p className="text-xl text-gray-700 leading-relaxed mb-8">
+              Holistik şifa, bireyi bir bütün olarak ele alan, fiziksel, zihinsel, duygusal ve ruhsal sağlığın birbiriyle ayrılmaz bir bütün olduğunu savunan bir yaklaşımdır. Bu bütünlüğü sağlamak için kullanılan en güçlü araçlardan bazıları <strong>kozmik enerji</strong>, <strong>biyoenerji</strong>, <strong>nefes teknikleri</strong>, <strong>meditasyon</strong> ve <strong>EFT (Duygusal Özgürleşme Teknikleri)</strong> gibi yöntemlerdir. Bu teknikler, bedenin ve zihnin doğal iyileşme mekanizmalarını harekete geçirerek yaşamın her alanında derin ve kalıcı bir dönüşüm sağlar.
+            </p>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h2 className="text-2xl md:text-3xl font-heading text-gold mb-6">
-              Günümüzde Kaygı ve Stres
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Tedaviye ve Rahatsızlıklara Pozitif Katkıları
             </h2>
-            <p className="mb-6">
-              Modern yaşamın getirdiği hızlı tempo, belirsizlikler ve sorumluluklar, birçok insanın 
-              yoğun kaygı ve stres yaşamasına neden olmaktadır. Bu duygusal yükler, hem zihinsel 
-              hem de fiziksel sağlığımızı olumsuz etkileyebilir.
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Bu holistik teknikler, bir hastalık teşhisi veya tedavisi olmaktan ziyade, çeşitli rahatsızlıkların temelinde yatan enerjisel ve duygusal blokajları çözmeye odaklanır.
             </p>
-          </div>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              Kaygı ve Stresin Belirtileri
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Fiziksel Rahatsızlıklar
             </h3>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Sürekli endişe ve gerginlik hissi</li>
-              <li>Uyku problemleri</li>
-              <li>Konsantrasyon güçlüğü</li>
-              <li>Fiziksel semptomlar (baş ağrısı, kas gerginliği)</li>
-              <li>Sosyal izolasyon eğilimi</li>
-            </ul>
-          </div>
-
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              Başa Çıkma Stratejileri
-            </h3>
-            <p className="mb-4">
-              Kaygı ve stresle başa çıkmak için kullanabileceğiniz etkili yöntemler:
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong>, bedenin doğal enerji akışını dengeleyerek bağışıklık sistemini güçlendirir ve iyileşme sürecini hızlandırır. <strong>Nefes teknikleri</strong> ve <strong>meditasyon</strong>, stresi ve kaygıyı azaltarak bedenin gevşemesine ve kronik ağrı, migren, sindirim sorunları gibi rahatsızlıkların hafiflemesine yardımcı olur. <strong>EFT</strong> ise fiziksel ağrıların duygusal kök nedenlerini bulup serbest bırakarak kalıcı rahatlama sağlayabilir.
             </p>
-            <ol className="list-decimal pl-6 mb-6">
-              <li className="mb-3">
-                <strong className="text-gold">Nefes Egzersizleri:</strong> Derin nefes alma 
-                teknikleri, vücudunuzu sakinleştirmeye ve stresinizi azaltmaya yardımcı olur.
-              </li>
-              <li className="mb-3">
-                <strong className="text-gold">Mindfulness:</strong> Şimdiki ana odaklanma 
-                pratiği, kaygı düşüncelerinden uzaklaşmanıza yardımcı olabilir.
-              </li>
-              <li className="mb-3">
-                <strong className="text-gold">Düzenli Egzersiz:</strong> Fiziksel aktivite, 
-                stres hormonlarını azaltır ve endorfin salgılanmasını artırır.
-              </li>
-              <li className="mb-3">
-                <strong className="text-gold">Sağlıklı Yaşam Rutini:</strong> Düzenli uyku, 
-                dengeli beslenme ve su tüketimi önemlidir.
-              </li>
-            </ol>
-          </div>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              Ne Zaman Profesyonel Destek Almalı?
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Zihinsel ve Duygusal Denge
             </h3>
-            <p className="mb-6">
-              Eğer kaygı ve stres günlük yaşamınızı önemli ölçüde etkiliyorsa, profesyonel 
-              bir psikolojik danışmandan destek almak faydalı olabilir. Danışmanlık sürecinde:
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Bu tekniklerin en belirgin faydası, zihinsel ve duygusal sağlığa olan katkılarıdır. <strong>Meditasyon</strong>, zihni sakinleştirerek odaklanmayı artırır ve negatif düşünce kalıplarını kırmaya yardımcı olur. <strong>EFT</strong>, travmatik anıların ve negatif duygusal yüklerin serbest bırakılmasını sağlayarak kaygı, depresyon ve fobilerin etkilerini azaltabilir. Bu süreçler, kişinin daha güçlü, dengeli ve huzurlu hissetmesini sağlar.
             </p>
-            <ul className="list-disc pl-6 mb-6">
-              <li>Kaygı ve stresin temel nedenlerini belirleme</li>
-              <li>Kişiye özel başa çıkma stratejileri geliştirme</li>
-              <li>Düşünce ve davranış kalıplarını değiştirme</li>
-              <li>Uzun vadeli çözümler üretme</li>
-              <li>Öz-farkındalık geliştirme</li>
-            </ul>
-          </div>
 
-          <div className="animate-on-scroll opacity-0 translate-y-8">
-            <h3 className="text-xl md:text-2xl font-heading text-gold mb-4 mt-8">
-              Sonuç
-            </h3>
-            <p className="mb-6">
-              Kaygı ve stres, hayatın doğal bir parçası olmakla birlikte, bunların yönetimi 
-              öğrenilebilir bir beceridir. Doğru teknikler ve gerektiğinde profesyonel 
-              destekle, bu duyguları daha iyi yönetebilir ve daha dengeli bir yaşam 
-              sürdürebilirsiniz.
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Ruhsal ve Bedensel Gençleştirici Faydaları
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Bu holistik teknikler, sadece mevcut rahatsızlıkları iyileştirmekle kalmaz, aynı zamanda ruhsal bir uyanışa ve bedensel bir gençleşmeye de katkıda bulunur.
             </p>
+
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Ruhsal Gelişim
+            </h3>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              <strong>Kozmik enerji</strong>, <strong>biyoenerji</strong> ve <strong>meditasyon</strong> pratikleri, bireyin içsel bilgeliğiyle ve evrensel enerjiyle bağlantı kurmasını sağlar. Bu, daha yüksek bir farkındalık düzeyine ulaşmaya, yaşam amacını keşfetmeye ve derin bir içsel huzur hissetmeye yardımcı olur. Bu süreç, kişinin ruhsal yolculuğunda önemli bir dönüşüm yaratır.
+            </p>
+
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Bedensel Gençleşme
+            </h3>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Kronik stres, bedenin erken yaşlanmasının en büyük nedenlerinden biridir. <strong>Nefes teknikleri</strong> ve <strong>meditasyon</strong>, stresi azaltarak hücrelerin yenilenmesine ve bedenin daha canlı kalmasına katkıda bulunur. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise bedendeki enerji akışını artırarak hücrelerin ve dokuların daha iyi beslenmesini sağlar. Bu da cildin daha parlak ve genç görünmesine yardımcı olabilir.
+            </p>
+
+            <hr className="my-8 border-gray-300" />
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Yaşam Alanlarına Pozitif Katkıları
+            </h2>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Bu teknikler, bireyin içsel dünyasındaki dengeyi sağlayarak dış dünyayla olan etkileşimini de olumlu yönde etkiler.
+            </p>
+
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Kilo Kontrolü
+            </h3>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Kilo kontrolü, sadece fiziksel bir durum değildir; duygusal yeme alışkanlıkları ve stres gibi faktörlerle yakından ilişkilidir. <strong>Meditasyon</strong> ve <strong>nefes teknikleri</strong>, stresi azaltarak duygusal yeme krizlerini önleyebilir. <strong>EFT</strong> ise kilo alma ve beden imajı ile ilgili bilinçaltındaki negatif inançları ve duygusal blokajları çözerek daha sağlıklı yeme alışkanlıkları geliştirilmesine destek olur. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise bedenin metabolizmasını dengeleyerek kilo verme sürecine pozitif katkı sağlar.
+            </p>
+
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Bolluk ve Bereket
+            </h3>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Holistik yaklaşıma göre, bolluk ve bereket sadece maddi zenginlik değildir; yaşamın her alanında tatmin edici ve zengin bir deneyime sahip olmaktır. <strong>EFT</strong>, para ve başarı ile ilgili bilinçaltındaki negatif inançları temizleyerek bolluk bilincinin oluşmasına katkıda bulunur. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise evrenin sınırsız bolluğuna açılmamızı sağlar. Bu sayede kişi, bolluğu çekmeye daha açık hale gelir ve finansal durumunun yanı sıra hayatına giren fırsatları, şansları ve güzel deneyimleri de artırır.
+            </p>
+
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              İlişkiler
+            </h3>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              İlişkiler, enerji alışverişinin en yoğun yaşandığı alanlardır. Bu teknikler, hem kendimizle olan ilişkimizi hem de başkalarıyla kurduğumuz bağları dönüştürebilir. <strong>Meditasyon</strong>, kendi içimizdeki dengeyi sağlayarak kendimize olan sevgimizi ve saygımızı artırır. Bu da başkalarının bize olan tutumunu olumlu yönde etkiler. <strong>EFT</strong> ve <strong>nefes teknikleri</strong>, ilişkilerde yaşanan anlaşmazlıkların ve çatışmaların temelinde yatan duygusal ve enerjisel blokajların çözülmesine yardımcı olur. Bu sayede, empati yeteneğimiz gelişir ve daha uyumlu, sevgi dolu ve derin bağlar kurabiliriz.
+            </p>
+
+            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+              Başarı
+            </h3>
+            
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Başarı, sadece hedeflere ulaşmak değil, aynı zamanda kişisel potansiyeli en üst seviyede kullanabilmektir. <strong>Meditasyon</strong>, zihinsel berraklığı ve odaklanmayı artırarak başarıya giden yolda önemli bir destek sağlar. <strong>EFT</strong>, başarının önündeki korkuları, şüpheleri ve engelleri ortadan kaldırarak motivasyonumuzu güçlendirir. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise yaratıcılığımızı ve enerjimizi artırarak hedeflerimize daha kararlı bir şekilde ilerlememize yardımcı olur. Bu sayede kişi, zorluklar karşısında daha dirençli ve çözüm odaklı hale gelir ve başarıya giden yol daha akıcı ve kolay hale gelir.
+            </p>
+
+            <div className="bg-[var(--accent-light)] p-6 rounded-xl mt-8">
+              <h3 className="text-xl font-semibold text-[var(--accent-green)] mb-6">
+                Kozmik Enerji, Biyoenerji, Nefes, Meditasyon ve EFT: Holistik Şifanın Kapsamlı Gücü
+              </h3>
+              <Link 
+                href="/#contact" 
+                className="button-modern inline-block"
+              >
+                Randevu Al
+              </Link>
+            </div>
           </div>
         </article>
+
+
       </div>
-    </main>
+    </div>
   );
 } 

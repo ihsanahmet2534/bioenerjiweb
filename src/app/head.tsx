@@ -1,8 +1,8 @@
 export default function Head() {
   return (
     <>
-      <title>Psikolog Mustafa Çobanoğlu</title>
-      <meta name="description" content="Psikolog Mustafa Çobanoğlu - Bireysel, aile ve çocuk danışmanlığı hizmetleri." />
+      <title>Bioenerji ile Doğanın Şifası - Evrensel Yaşam Enerjisi Merkezi</title>
+      <meta name="description" content="Bioenerji uzmanı ile evrenin enerjisini keşfedin. Doğayla buluşun, nefes alın, huzuru ve içsel ferahlığı yaşayın. Beden, zihin ve ruh için bütünsel şifa!" />
       <link rel="icon" href="/favicon.ico" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16992672093"></script>
       <script

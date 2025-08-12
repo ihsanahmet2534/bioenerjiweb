@@ -1,0 +1,979 @@
+'use client';
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import Link from 'next/link';
+
+const NAV_LINKS = [
+  { label: "Anasayfa", href: "#hero" },
+  { label: "Hakkımızda", href: "#about" },
+  { label: "Bioenerji Nedir?", href: "#bioenergy" },
+  { label: "Doğayla Şifa", href: "#nature" },
+  { label: "Nefes ve Meditasyon", href: "#breath" },
+  { label: "Bloglar", href: "#testimonials" },
+  { label: "Yorumlar", href: "#testimonials" },
+  { label: "İletişim", href: "#contact" },
+];
+
+const REVIEWS = [
+  {
+    quote:
+      "Eşimle yaşadığımız iletişim sorunları ve sık sık yaşadığımız tartışmalar nedeniyle terapi almaya karar verdik. İlk başta biraz endişeliydik ama Mustafa hocam sayesinde süreç çok sağlıklı ilerledi. Bizi yargılamadan dinlemesi, doğru sorularla düşünmemizi sağlaması ve verdiği yönlendirmeler gerçekten çok faydalı oldu. Şu an hem birbirimizi daha iyi anlıyor hem de daha sağlıklı iletişim kurabiliyoruz. Profesyonelliği ve samimiyeti için çok teşekkür ederiz.",
+    name: "S. Yılmaz",
+    date: "Mart 2025",
+    stars: 5,
+  },
+  {
+    quote:
+      "Zor bir dönemde destek ararken karşıma çıktı Mustafa hocam. Ailevi sıkıntılarla başa çıkmakta zorlanırken güven veren bir destek oldu. Hem yaklaşımı hem rehberliği çok kıymetliydi teşekkür ederim Hocam'a. 🙏🏻",
+    name: "R. Yaşarbaş",
+    date: "Şubat 2025",
+    stars: 5,
+  },
+  {
+    quote:
+      "Yoğun tükenmişlik hissi yaşadığım bir dönemde destek almaya karar verdim. Seanslar sayesinde kendimi yeniden tanımaya ve nefes almaya başladım. İyi ki bu adımı atmışım. İyi ki siz hocam",
+    name: "S. Tanyeri",
+    date: "Ocak 2024",
+    stars: 5,
+  },
+  {
+    quote:
+      "Profesyonel yaklaşımı ve destekleyici tutumu ile zorlu sürecimde yanımda oldu. Teşekkürler.",
+    name: "M. Arslan",
+    date: "Aralık 2023",
+    stars: 5,
+  },
+  {
+    quote:
+      "Terapide kullandığı teknikler ve yaklaşımı çok etkili. Kendimi daha iyi hissediyorum.",
+    name: "A. Yıldız",
+    date: "Kasım 2023",
+    stars: 5,
+  },
+  {
+    quote:
+      "Her seansın sonunda pozitif enerji ile ayrılıyorum. Hayatımdaki en iyi kararlardan biri.",
+    name: "D. Çelik",
+    date: "Ekim 2023",
+    stars: 5,
+  },
+];
+
+const CERTIFICATES = [
+  { id: 1, src: "/certificate1.jpg", alt: "Sertifika 1" },
+  { id: 2, src: "/certificate2.jpg", alt: "Sertifika 2" },
+  { id: 3, src: "/certificate3.jpg", alt: "Sertifika 3" },
+  { id: 4, src: "/certificate4.jpg", alt: "Sertifika 4" },
+  { id: 5, src: "/certificate5.jpg", alt: "Sertifika 5" },
+  { id: 6, src: "/certificate6.jpg", alt: "Sertifika 6" },
+  { id: 7, src: "/certificate7.jpg", alt: "Sertifika 7" },
+  { id: 8, src: "/certificate8.jpg", alt: "Sertifika 8" },
+  { id: 9, src: "/certificate9.jpg", alt: "Sertifika 9" },
+  { id: 10, src: "/certificate10.jpg", alt: "Sertifika 10" },
+  { id: 11, src: "/certificate11.jpg", alt: "Sertifika 11" },
+];
+
+const VIDEOS = [
+  {
+    id: 1,
+    title: "Anksiyete ile Başa Çıkma Yöntemleri",
+    desc: "Günlük hayatta yaşanan kaygı ve stresle başa çıkma teknikleri hakkında bilgilendirme.",
+    thumbnail: "/video-anxiety.jpg",
+    videoUrl: "/videos/anxiety-management.mp4"
+  },
+  {
+    id: 2,
+    title: "İlişkilerde İletişimin Önemi",
+    desc: "Sağlıklı ilişkiler için etkili iletişim teknikleri ve öneriler.",
+    thumbnail: "/video-relationships.jpg",
+    videoUrl: "/videos/relationship-communication.mp4"
+  },
+  {
+    id: 3,
+    title: "Depresyonu Anlamak",
+    desc: "Depresyon belirtileri ve tedavi sürecinde bilmeniz gerekenler.",
+    thumbnail: "/video-depression.jpg",
+    videoUrl: "/videos/understanding-depression.mp4"
+  },
+  {
+    id: 4,
+    title: "Öz Farkındalık Geliştirme",
+    desc: "Kendini tanıma ve kişisel gelişim yolculuğunda önemli ipuçları.",
+    thumbnail: "/video-awareness.jpg",
+    videoUrl: "/videos/self-awareness.mp4"
+  }
+];
+
+const SERVICES = [
+  {
+    title: "Bireysel Danışmanlık",
+    img: "/therapy-individual.jpg",
+    sections: [
+      {
+        title: "Bireysel Danışmanlık Nedir?",
+        content: "Bireysel danışmanlık, kişinin kendini daha iyi tanıması, duygusal zorluklarla başa çıkması ve hayat kalitesini artırması için profesyonel destek aldığı bir süreçtir. Bu süreçte, güvenli ve yargısız bir ortamda düşüncelerinizi, duygularınızı ve endişelerinizi paylaşabilirsiniz."
+      },
+      {
+        title: "Kimler İçin Uygundur?",
+        content: "Bireysel danışmanlık; depresyon, kaygı, stres, ilişki sorunları, öfke kontrolü, özgüven problemleri yaşayan veya kendini daha iyi tanımak ve geliştirmek isteyen herkes için uygundur. Yaşamında değişim ve dönüşüm isteyen her yaştan danışan faydalanabilir."
+      }
+    ]
+  },
+  {
+    title: "Çift Danışmanlığı",
+    img: "/therapy-couple.jpg",
+    sections: [
+      {
+        title: "Çift Danışmanlığı Nedir?",
+        content: "Çift danışmanlığı, ilişkilerinde zorluk yaşayan çiftlerin, profesyonel bir danışman eşliğinde iletişim becerilerini geliştirdikleri ve ilişki dinamiklerini iyileştirdikleri bir süreçtir. Bu süreçte çiftler, birbirlerini daha iyi anlama ve sorunlarına çözüm bulma fırsatı yakalar."
+      },
+      {
+        title: "Kimler İçin Uygundur?",
+        content: "İletişim problemleri yaşayan, çatışma çözme becerileri geliştirmek isteyen, güven sorunları olan, evlilik öncesi danışmanlık almak isteyen veya ilişkilerini güçlendirmek isteyen tüm çiftler için uygundur."
+      }
+    ]
+  },
+  {
+    title: "Aile Danışmanlığı",
+    img: "/therapy-family.jpg",
+    sections: [
+      {
+        title: "Aile Danışmanlığı Nedir?",
+        content: "Aile danışmanlığı, aile içi iletişimi güçlendirmek, çatışmaları çözmek ve aile üyeleri arasındaki ilişkileri iyileştirmek için sunulan profesyonel bir destek hizmetidir. Bu süreçte tüm aile üyeleri birlikte çalışarak daha sağlıklı bir aile dinamiği oluşturur."
+      },
+      {
+        title: "Kimler İçin Uygundur?",
+        content: "Aile içi iletişim sorunları yaşayan, ebeveyn-çocuk ilişkilerinde zorlanan, ergenlik dönemi problemleri yaşayan, boşanma/yeni evlilik sürecinde destek ihtiyacı olan tüm aileler için uygundur."
+      }
+    ]
+  },
+  {
+    title: "Online Danışmanlık",
+    img: "/therapy-online.jpg",
+    sections: [
+      {
+        title: "Online Danışmanlık Nedir?",
+        content: "Online danışmanlık, yüz yüze danışmanlığın tüm avantajlarını dijital platformda sunan modern bir yöntemdir. Video görüşme üzerinden gerçekleştirilen seanslar, geleneksel danışmanlık kadar etkili ve güvenlidir."
+      },
+      {
+        title: "Kimler İçin Uygundur?",
+        content: "Yoğun iş temposu nedeniyle kliniğe gelemeyen, farklı şehirde yaşayan, seyahat engeli olan, ev/ofis konforunda danışmanlık almak isteyen veya pandemi sürecinde yüz yüze görüşmek istemeyen danışanlar için idealdir."
+      }
+    ]
+  }
+];
+
+export default function Home() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({});
+  const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [heroImageIndex, setHeroImageIndex] = useState(0);
+  
+  const [reviewIndex, setReviewIndex] = useState(0);
+  const [reviewsPerPage, setReviewsPerPage] = useState(2);
+  
+  const [certificateIndex, setCertificateIndex] = useState(0);
+  const [certificatesPerPage, setCertificatesPerPage] = useState(3);
+  const maxCertificateIndex = CERTIFICATES.length - 1;
+
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const handlePrev = () => setReviewIndex(prev => Math.max(0, prev - 1));
+  const handleNext = () => setReviewIndex(prev => prev + 1);
+  const handlePrevCertificate = () => setCertificateIndex(prev => Math.max(0, prev - 1));
+  const handleNextCertificate = () => setCertificateIndex(prev => Math.min(maxCertificateIndex, prev + 1));
+
+  const toggleSection = (section: string) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Sertifika modal fonksiyonları
+  const openCertificateModal = (certificate: { src: string; alt: string }) => {
+    setSelectedImage(certificate);
+  };
+
+  const closeCertificateModal = () => {
+    setSelectedImage(null);
+  };
+
+  // Hizmet modal fonksiyonları
+  const openServiceModal = (service: any) => {
+    setSelectedService(service);
+  };
+
+  const closeServiceModal = () => {
+    setSelectedService(null);
+  };
+
+  // Çocuk Değerlendirme ve Dikkat Testleri - Accordion mantığı
+  const [openChildTestSections, setOpenChildTestSections] = useState<{[key:string]: boolean}>({});
+
+  // Scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setNavScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Auto-slide certificates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCertificateIndex(prev => 
+        prev === maxCertificateIndex ? 0 : prev + 1
+      );
+    }, 6000); // 6 saniyede bir geçiş
+
+    return () => clearInterval(interval);
+  }, [maxCertificateIndex]);
+
+  // Auto-slide hero images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHeroImageIndex(prev => prev === 2 ? 0 : prev + 1);
+    }, 5000); // 5 saniyede bir geçiş
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Kullanıcı etkileşimi sırasında otomatik geçişi durdur
+  const handleCertificateInteraction = () => {
+    // Otomatik geçişi geçici olarak durdur
+    const currentInterval = setInterval(() => {}, 6000);
+    clearInterval(currentInterval);
+    
+    // 10 saniye sonra otomatik geçişi tekrar başlat
+    setTimeout(() => {
+      const newInterval = setInterval(() => {
+        setCertificateIndex(prev => 
+          prev === maxCertificateIndex ? 0 : prev + 1
+        );
+      }, 6000);
+      return () => clearInterval(newInterval);
+    }, 10000);
+  };
+
+  // Modal dışına tıklandığında kapatma
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeCertificateModal();
+        closeServiceModal();
+      }
+    };
+
+    if (selectedImage || selectedService) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage, selectedService]);
+
+  // Hizmetler verisi
+  const servicesData = [
+    {
+      id: 1,
+      title: "Kozmik Enerji Seansı",
+      shortDesc: "Evrenin şifa dolu yaşam gücüyle bedensel, zihinsel ve ruhsal dengeyi yeniden kurun.",
+      icon: (
+        <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="22" stroke="#3b82f6" strokeWidth="4"/>
+          <path d="M24 14v10l7 7" stroke="#60a5fa" strokeWidth="4" strokeLinecap="round"/>
+        </svg>
+      ),
+      details: {
+        description: "Kozmik enerji seansları, evrenin şifa dolu yaşam gücünü kullanarak bedensel, zihinsel ve ruhsal dengenizi yeniden kurar. Bu seanslar, evrensel enerji akışını kullanarak birçok alanda iyileşmeyi destekler.",
+        benefits: [
+          "Stres, anksiyete ve depresyon yönetimi",
+          "Ağrıların hafifletilmesi",
+          "Enerji seviyesinin yükseltilmesi",
+          "Bağışıklık sisteminin güçlendirilmesi",
+          "Duygusal travmaların ve blokajların çözülmesi",
+          "Uyku kalitesinin iyileştirilmesi",
+          "Odaklanma ve konsantrasyonun artırılması"
+        ],
+        duration: "40 dakika",
+        frequency: "Haftada 1-2 seans önerilir",
+        preparation: "Seans öncesi hafif yemek yiyin, rahat kıyafetler giyin ve açık fikirli olun."
+      }
+    },
+    {
+      id: 2,
+      title: "Biyoenerji Seansı",
+      shortDesc: "Güçlü bir şifa yöntemi olan evrensel yaşam enerjisiyle bedensel, zihinsel ve duygusal dengeyi yeniden kurun.",
+      icon: (
+        <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
+          <rect x="8" y="8" width="32" height="32" rx="16" stroke="#3b82f6" strokeWidth="4"/>
+          <path d="M24 16v8h8" stroke="#60a5fa" strokeWidth="4" strokeLinecap="round"/>
+        </svg>
+      ),
+      details: {
+        description: "Biyoenerji, evrensel yaşam enerjisini kullanarak bedensel, zihinsel ve duygusal dengeyi yeniden kuran güçlü bir şifa yöntemidir. Bu enerji akışı, vücudunuzdaki enerji blokajlarını çözerek doğal şifa sürecini destekler.",
+        benefits: [
+          "Ağrı yönetimi",
+          "Stres ve anksiyete azalması",
+          "Enerji düzeylerinin artırılması",
+          "Bağışıklık sisteminin güçlendirilmesi",
+          "Duygusal denge ve pozitif ruh hali",
+          "Uyku kalitesinin artırılması",
+          "Sindirim problemlerinin iyileştirilmesi"
+        ],
+        duration: "40 dakika",
+        frequency: "Haftada 1-2 seans önerilir",
+        preparation: "Seans öncesi hafif yemek yiyin, rahat kıyafetler giyin ve açık fikirli olun."
+      }
+    },
+    {
+      id: 3,
+      title: "Nefes ve Meditasyon Seansı",
+      shortDesc: "Zihinsel ve fiziksel sağlığınız üzerinde derinlemesine olumlu etkiler yaratan güçlü uygulamalar.",
+      icon: (
+        <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
+          <ellipse cx="24" cy="24" rx="20" ry="12" stroke="#3b82f6" strokeWidth="4"/>
+          <path d="M12 24c2-4 8-8 12-8s10 4 12 8" stroke="#60a5fa" strokeWidth="4" strokeLinecap="round"/>
+        </svg>
+      ),
+      details: {
+        description: "Nefes ve meditasyon teknikleri, hem zihinsel hem de fiziksel sağlığınız üzerinde derinlemesine olumlu etkiler yaratır. Bu güçlü uygulamalar sayesinde, günlük yaşamınızda karşılaştığınız pek çok zorlukla daha etkili bir şekilde başa çıkabilir ve genel refahınızı artırabilirsiniz.",
+        benefits: [
+          "Stres ve anksiyete yönetimi",
+          "Duygusal denge",
+          "Uyku kalitesi",
+          "Odaklanma ve konsantrasyon",
+          "Fiziksel sağlık, kilo kontrolü",
+          "Öz farkındalık ve benlik algısı"
+        ],
+        duration: "30 dakika",
+        frequency: "Haftada 2-3 seans önerilir",
+        preparation: "Sessiz ve rahat bir ortam seçin, rahat bir pozisyon alın ve açık fikirli olun."
+      }
+    },
+    {
+      id: 4,
+      title: "EFT Seansı",
+      shortDesc: "(Duygusal Özgürleşme Tekniği) Bedenimizdeki enerji meridyenleri üzerinde yapılan nazik vuruşlarla duygusal ve fiziksel rahatsızlıkları hafifletmeyi hedefleyen güçlü bir yöntem.",
+      icon: (
+        <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
+          <circle cx="24" cy="24" r="20" stroke="#3b82f6" strokeWidth="4"/>
+          <path d="M12 24l8-8 8 8" stroke="#60a5fa" strokeWidth="4" strokeLinecap="round"/>
+        </svg>
+      ),
+      details: {
+        description: "EFT (Emotional Freedom Techniques) ya da bilinen adıyla Duygusal Özgürleşme Tekniği, bedenimizdeki enerji meridyenleri üzerinde yapılan nazik vuruşlarla duygusal ve fiziksel rahatsızlıkları hafifletmeyi hedefleyen güçlü bir yöntemdir. Akupunkturun iğnesiz hali olarak da düşünülebilecek bu teknik, zihin ve beden arasındaki dengeyi yeniden kurarak birçok alanda derinlemesine iyileşme sağlar.",
+        benefits: [
+          "Stres, anksiyete ve panik atak yönetimi",
+          "Fobiler",
+          "Travmatik deneyimler",
+          "Duygusal denge ve özgüven",
+          "Bağımlılıklar",
+          "Fiziksel ağrılar",
+          "Performans gelişimi",
+          "İlişki sorunları"
+        ],
+        duration: "45 dakika",
+        frequency: "Haftada 1-2 seans önerilir",
+        preparation: "Seans öncesi hafif yemek yiyin, rahat kıyafetler giyin ve açık fikirli olun."
+      }
+    },
+    {
+      id: 5,
+      title: "Doğal Taş Kodlama",
+      shortDesc: "Doğal taşların güçlü enerjilerini kişisel niyetlerinizle uyumlu hale getirerek hayatınızda istediğiniz değişimleri çekmenize yardımcı olan özel bir yöntem.",
+      icon: (
+        <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
+          <polygon points="24,4 30,18 44,18 32,28 36,42 24,34 12,42 16,28 4,18 18,18" stroke="#3b82f6" strokeWidth="4" fill="none"/>
+        </svg>
+      ),
+      details: {
+        description: "Doğal taşlar, yüzyıllardır farklı kültürlerde enerji dengeleme, şifa ve kişisel gelişim amacıyla kullanılmıştır. Her bir doğal taşın kendine özgü bir enerjisi ve frekansı bulunur. Doğal taş kodlama ise, bu güçlü enerjileri kişisel niyetlerinizle uyumlu hale getirerek hayatınızda istediğiniz değişimleri çekmenize yardımcı olan özel bir yöntemdir.",
+        benefits: [
+          "Belirli niyetlerinizi güçlendirme",
+          "Enerji dengeleme ve koruma",
+          "Duygusal ve zihinsel netlik",
+          "Meditasyon ve farkındalık pratiğinizi destekleme",
+          "Kişisel büyüme ve gelişim",
+          "Aura alanınızı güçlendirme",
+          "İçsel denge ve huzur"
+        ]
+      },
+      {
+        id: 6,
+        title: "Pozitif Enerji Seansı",
+        shortDesc: "Yaşam enerjinizi yükseltmeyi, aurınızı temizlemeyi ve içsel dengenizi yeniden sağlamayı amaçlayan güçlü bir uygulama.",
+        icon: (
+          <svg width="48" height="48" fill="none" viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20" stroke="#3b82f6" strokeWidth="4"/>
+            <path d="M24 8l4 12h12l-10 7 4 12-10-7-10 7 4-12-10-7h12z" stroke="#60a5fa" strokeWidth="4" fill="none"/>
+          </svg>
+        ),
+        details: {
+          description: "Hayatımızda karşılaştığımız zorluklar, stres ve olumsuz düşünceler zamanla enerji seviyemizi düşürebilir, ruh halimizi olumsuz etkileyebilir. Pozitif enerji yüklemeleri, yaşam enerjinizi yükseltmeyi, aurınızı temizlemeyi ve içsel dengenizi yeniden sağlamayı amaçlayan güçlü bir uygulamadır. Bu seanslar sayesinde, olumsuz kalıplardan arınarak hayatınıza daha fazla neşe, huzur ve canlılık çekebilirsiniz.",
+          benefits: [
+            "Duygusal denge ve ruh hali iyileşmesi",
+            "Stres azaltma ve rahatlama",
+            "Zihinsel netlik ve odaklanma",
+            "Fiziksel canlılık ve enerji artışı",
+            "Bağışıklık sistemi desteği",
+            "Öz güven ve öz değer artışı",
+            "Çekim yasası'nı güçlendirme",
+            "İlişkilerde uyum"
+          ],
+          duration: "40 dakika",
+          frequency: "Haftada 1-2 seans önerilir",
+          preparation: "Seans öncesi hafif yemek yiyin, rahat kıyafetler giyin ve açık fikirli olun."
+        }
+      }
+    }
+  ];
+
+  return (
+    <main className="bg-transparent">
+      <nav className="sticky top-0 z-50 w-full bg-white/30 backdrop-blur-md shadow-lg">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
+          <a href="#hero" className="text-2xl font-extrabold text-[var(--accent-green)] tracking-tight">Kozmik Enerji</a>
+          <div className="flex gap-6 text-base font-semibold">
+            <a href="#hero" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Anasayfa</a>
+            <a href="#about" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Hakkımızda</a>
+            <a href="#services" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Hizmetler</a>
+            <a href="#certificates" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Sertifikalar</a>
+            <a href="#blogs" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Blog</a>
+            <a href="#video" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Tanıtım Videosu</a>
+            <a href="#contact" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">İletişim</a>
+          </div>
+        </div>
+      </nav>
+      {/* HERO */}
+      <section id="hero" className="relative min-h-[80vh] flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden">
+        {/* Background Images Slider */}
+        <div className="absolute inset-0">
+          <div className="relative w-full h-full">
+            <div 
+              className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+              style={{ 
+                backgroundImage: 'url(/hero-bg.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: heroImageIndex === 0 ? 1 : 0
+              }}
+            />
+            <div 
+              className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+              style={{ 
+                backgroundImage: 'url(/therapy-individual.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: heroImageIndex === 1 ? 1 : 0
+              }}
+            />
+            <div 
+              className="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+              style={{ 
+                backgroundImage: 'url(/therapy-couple.jpg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                opacity: heroImageIndex === 2 ? 1 : 0
+              }}
+            />
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[var(--accent-green)]/80 via-[var(--accent-green)]/60 to-[var(--accent-orange)]/80"></div>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-white">
+          <div className="transition-all duration-1000 ease-in-out">
+            {heroImageIndex === 0 && (
+              <div className="hero-text-enter" style={{opacity: 1, transform: 'translateY(0)'}}>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Bioenerji Seansı</h1>
+                <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Enerji blokajlarını çözerek beden-zihin-ruh dengesini yeniden kurun. Bioenerji seanslarıyla içsel denge ve huzura adım atın.</p>
+              </div>
+            )}
+            {heroImageIndex === 1 && (
+              <div className="hero-text-enter" style={{opacity: 1, transform: 'translateY(0)'}}>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Nefes & Meditasyon</h1>
+                <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Doğru nefes ve meditasyon teknikleriyle huzur ve içsel ferahlık. Zihninizi sakinleştirerek içsel huzuru keşfedin.</p>
+              </div>
+            )}
+            {heroImageIndex === 2 && (
+              <div className="hero-text-enter" style={{opacity: 1, transform: 'translateY(0)'}}>
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Doğayla Şifa</h1>
+                <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Doğanın enerjisiyle bütünsel yenilenme ve ruhsal denge. Doğal elementlerin enerjisini kullanarak beden, zihin ve ruhunuzu dengeye getirin.</p>
+              </div>
+            )}
+          </div>
+          <a href="#contact" className="button-modern">Hemen Randevu Al</a>
+        </div>
+
+        {/* Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+          {[0, 1, 2].map((index) => (
+            <button
+              key={index}
+              onClick={() => setHeroImageIndex(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === heroImageIndex 
+                  ? 'bg-white scale-125' 
+                  : 'bg-white/50 hover:bg-white/75'
+              }`}
+            />
+          ))}
+        </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={() => setHeroImageIndex(prev => prev === 0 ? 2 : prev - 1)}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
+        >
+          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+        
+        <button
+          onClick={() => setHeroImageIndex(prev => prev === 2 ? 0 : prev + 1)}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
+        >
+          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </section>
+
+
+
+      {/* Hakkımızda */}
+              <section id="about" className="section">
+          <h2 className="text-3xl font-bold mb-4 text-center">Hakkımda</h2>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
+                Özlem Gündüz
+              </h3>
+              <h4 className="text-xl font-semibold text-gray-700 mb-2">
+                Yaşam koçu ve spiritüel danışman, pozitif enerji uzmanı
+              </h4>
+              <h5 className="text-lg font-medium text-gray-600 mb-6">
+                (EFT, nefes, meditasyon, yüksek yaşam enerjisi uygulamaları)
+              </h5>
+            </div>
+          
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 mb-8">
+            <div className="flex flex-col lg:flex-row items-center gap-8">
+              {/* Yaşam Koçu Görseli */}
+              <div className="flex-shrink-0">
+                <div className="relative">
+                  <img 
+                    src="/portrait.jpg" 
+                    alt="Özlem Gündüz - Yaşam Koçu" 
+                    className="w-64 h-64 rounded-full object-cover shadow-2xl border-4 border-white"
+                  />
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[var(--accent-green)] to-[var(--accent-orange)] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                    Yaşam Koçu
+                  </div>
+                </div>
+                <div className="text-center mt-4">
+                  <p className="text-sm text-gray-600 font-medium">
+                    (Enerji Uzmanı, EFT, Nefes & Meditasyon Teknikleri Uygulayıcısı)
+                  </p>
+                </div>
+              </div>
+              
+              {/* Metin İçeriği */}
+              <div className="flex-1">
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  1972 Mersin doğumluyum. En büyük gururum kalbimin ilhamı muhteşem bir kızım var.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Yıllarca tekstil sektöründe edindiğim tecrübelerin ardından, şimdi kişisel gelişim yolculuğundayım.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4">
+                  Kişisel gelişim, pozitif enerji, nefes, EFT, meditasyon tekniklerini kullanarak kişilerin bedensel, ruhsal, zihinsel dengelerini kazanmalarına yardımcı oluyorum.
+                </p>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Beraberce pozitif düşüncenin, pozitif enerjinin, pozitif farkındalığa ulaşmanın mutluluğunu deneyimliyoruz. Sevgilerimle.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="text-center">
+            <Link href="/about" className="button-modern inline-block">
+              Detaylı Bilgi İçin Tıklayın
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Tanıtım Videosu */}
+      <section id="video" className="section">
+        <h2 className="text-3xl font-bold mb-4 text-center">Tanıtım Videosu</h2>
+        <p className="text-lg text-center max-w-2xl mx-auto mb-8">Bioenerji ve doğanın şifasıyla ilgili kısa tanıtım videomuzu izleyin, enerjiyi hissedin!</p>
+        <div className="flex justify-center">
+          <video controls poster="/video-poster.jpg" className="rounded-2xl shadow-lg w-full max-w-md">
+            <source src="/tanitim.mp4" type="video/mp4" />
+            Tarayıcınız video etiketini desteklemiyor.
+          </video>
+        </div>
+      </section>
+
+      {/* Hizmetler */}
+      <section id="services" className="section">
+        <h2 className="text-3xl font-bold mb-8 text-center">Hizmetlerimiz</h2>
+        <p className="text-lg text-center max-w-2xl mx-auto mb-12">Size özel hazırlanmış bioenerji ve şifa hizmetlerimizi keşfedin. Her hizmet hakkında detaylı bilgi almak için kartlara tıklayın.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {servicesData.map((service) => (
+            <div 
+              key={service.id}
+              className="card flex flex-col items-center text-center cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
+              onClick={() => openServiceModal(service)}
+            >
+              <div className="mb-4">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-semibold mt-4 mb-2">{service.title}</h3>
+              <p className="text-gray-600">{service.shortDesc}</p>
+              <div className="mt-4 text-sm text-[var(--accent-green)] font-semibold">
+                Detayları görmek için tıklayın →
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Hizmet Modal */}
+      {selectedService && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm modal-backdrop"
+          onClick={closeServiceModal}
+        >
+          <div 
+            className="relative max-w-2xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeServiceModal}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-gray-200 transition-all duration-200"
+            >
+              <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+            
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="text-[var(--accent-green)]">
+                  {selectedService.icon}
+                </div>
+                <h2 className="text-3xl font-bold text-[var(--accent-green)]">{selectedService.title}</h2>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-800">Hizmet Açıklaması</h3>
+                  <p className="text-gray-600 leading-relaxed">{selectedService.details.description}</p>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold mb-3 text-gray-800">Faydaları</h3>
+                  <ul className="space-y-2">
+                    {selectedService.details.benefits.map((benefit: string, index: number) => (
+                      <li key={index} className="flex items-start gap-2 text-gray-600">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="text-[var(--accent-green)] mt-0.5 flex-shrink-0">
+                          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {selectedService.details.duration && (
+                    <div className="bg-[var(--accent-light)] p-4 rounded-lg">
+                      <h4 className="font-semibold text-[var(--accent-green)] mb-2">Seans Süresi</h4>
+                      <p className="text-gray-600">{selectedService.details.duration}</p>
+                    </div>
+                  )}
+                  {selectedService.details.frequency && (
+                    <div className="bg-[var(--accent-light)] p-4 rounded-lg">
+                      <h4 className="font-semibold text-[var(--accent-green)] mb-2">Önerilen Sıklık</h4>
+                      <p className="text-gray-600">{selectedService.details.frequency}</p>
+                    </div>
+                  )}
+                  {selectedService.details.preparation && (
+                    <div className="bg-[var(--accent-light)] p-4 rounded-lg">
+                      <h4 className="font-semibold text-[var(--accent-green)] mb-2">Hazırlık</h4>
+                      <p className="text-gray-600">{selectedService.details.preparation}</p>
+                    </div>
+                  )}
+                </div>
+                
+                <div className="flex justify-center pt-4">
+                  <a 
+                    href="#contact" 
+                    className="button-modern"
+                    onClick={closeServiceModal}
+                  >
+                    Bu Hizmet İçin Randevu Al
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sertifikalar */}
+      <section id="certificates" className="section">
+        <h2 className="text-3xl font-bold mb-8 text-center">Sertifikalarımız</h2>
+        <p className="text-lg text-center max-w-2xl mx-auto mb-12">Profesyonel eğitimlerimizi ve uzmanlık alanlarımızı gösteren sertifikalarımızı inceleyin. Her birine tıklayarak büyük boyutta görüntüleyebilirsiniz.</p>
+        
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Sertifika Slider */}
+            <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+              <div 
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${certificateIndex * 100}%)` }}
+              >
+                {CERTIFICATES.map((certificate, index) => (
+                  <div 
+                    key={certificate.id}
+                    className="w-full flex-shrink-0 relative"
+                  >
+                    <div 
+                      className="relative cursor-pointer"
+                      onClick={() => {
+                        openCertificateModal(certificate);
+                        handleCertificateInteraction();
+                      }}
+                    >
+                      <img 
+                        src={certificate.src} 
+                        alt={certificate.alt} 
+                        className="w-full h-64 md:h-80 object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end pointer-events-none">
+                        <div className="p-6 text-white">
+                          <p className="text-lg font-semibold">Büyütmek için tıklayın</p>
+                          <p className="text-sm opacity-90">Sertifika {certificate.id}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Navigation Buttons */}
+              <button
+                onClick={() => {
+                  handlePrevCertificate();
+                  handleCertificateInteraction();
+                }}
+                disabled={certificateIndex === 0}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-[var(--accent-green)] hover:bg-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M15 18l-6-6 6-6"/>
+                </svg>
+              </button>
+              
+              <button
+                onClick={() => {
+                  handleNextCertificate();
+                  handleCertificateInteraction();
+                }}
+                disabled={certificateIndex === maxCertificateIndex}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-[var(--accent-green)] hover:bg-white transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+              >
+                <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path d="M9 18l6-6-6-6"/>
+                </svg>
+              </button>
+            </div>
+            
+            {/* Dots Indicator */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {CERTIFICATES.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCertificateIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                    index === certificateIndex 
+                      ? 'bg-[var(--accent-green)] scale-125' 
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+            
+            {/* Certificate Counter */}
+            <div className="text-center mt-4 text-gray-600">
+              <span className="font-semibold text-[var(--accent-green)]">{certificateIndex + 1}</span>
+              <span className="mx-2">/</span>
+              <span>{CERTIFICATES.length}</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sertifika Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm modal-backdrop"
+          onClick={closeCertificateModal}
+        >
+          <div 
+            className="relative max-w-4xl max-h-[90vh] w-full h-full flex items-center justify-center modal-content"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeCertificateModal}
+              className="absolute top-4 right-4 z-10 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
+            >
+              <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <path d="M18 6L6 18M6 6l12 12"/>
+              </svg>
+            </button>
+            
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img 
+                src={selectedImage.src} 
+                alt={selectedImage.alt} 
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                style={{ animation: 'zoomIn 0.3s ease-out' }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Bloglar */}
+      <section id="blogs" className="section">
+        <h2 className="text-3xl font-bold mb-8 text-center">Blog</h2>
+        <p className="text-lg text-center max-w-2xl mx-auto mb-12">Kozmik enerji, nefes koçluğu ve şifa teknikleri hakkında bilgilendirici yazılarımızı keşfedin.</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Link href="/blog/kaygi-stres" className="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="/blog-anxiety.jpg" alt="Nefes Koçluğu" className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <h3 className="text-xl font-semibold mb-3 text-[var(--accent-green)]">Nefes Koçluğu ve Kozmik Mucize Enerji</h3>
+            <p className="text-gray-600 mb-4">Doğru nefes teknikleriyle kozmik mucize enerjiyi hayatınıza entegre edin. Diyafram nefesi ve bioenerji ile ruhsal dönüşüm.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">5 dakika okuma</span>
+              <span className="text-[var(--accent-green)] font-semibold group-hover:translate-x-1 transition-transform">Devamını Oku →</span>
+            </div>
+          </Link>
+          
+          <Link href="/blog/ozguven-gelistirme" className="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="/blog-relationships.jpg" alt="Kozmik Enerji" className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <h3 className="text-xl font-semibold mb-3 text-[var(--accent-green)]">Kozmik Enerji ile Şifa ve Gelişim</h3>
+            <p className="text-gray-600 mb-4">Evrenden gelen kozmik enerjiyi kullanarak bedensel ve ruhsal blokajları kaldırın. Mucize bio enerji ile yenilenme.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">4 dakika okuma</span>
+              <span className="text-[var(--accent-green)] font-semibold group-hover:translate-x-1 transition-transform">Devamını Oku →</span>
+            </div>
+          </Link>
+          
+          <div className="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="/blog-confidence.jpg" alt="Meditasyon" className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <h3 className="text-xl font-semibold mb-3 text-[var(--accent-green)]">Meditasyon ve Kozmik Farkındalık</h3>
+            <p className="text-gray-600 mb-4">Meditasyon teknikleriyle kozmik enerji akışını dengeleyin. İçsel huzur ve ruhsal farkındalık için rehber.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">6 dakika okuma</span>
+              <span className="text-[var(--accent-green)] font-semibold group-hover:translate-x-1 transition-transform">Devamını Oku →</span>
+            </div>
+          </div>
+          
+          <div className="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="/blog-anxiety.jpg" alt="Enerji Blokajları" className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <h3 className="text-xl font-semibold mb-3 text-[var(--accent-green)]">Enerji Blokajları ve Çözüm Yolları</h3>
+            <p className="text-gray-600 mb-4">Vücuttaki enerji blokajlarını tanıyın ve kozmik enerji teknikleriyle bu blokajları nasıl çözebileceğinizi öğrenin.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">7 dakika okuma</span>
+              <span className="text-[var(--accent-green)] font-semibold group-hover:translate-x-1 transition-transform">Devamını Oku →</span>
+            </div>
+          </div>
+          
+          <div className="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="/blog-relationships.jpg" alt="Doğa ile Bağ" className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <h3 className="text-xl font-semibold mb-3 text-[var(--accent-green)]">Doğa ile Kozmik Bağ Kurma</h3>
+            <p className="text-gray-600 mb-4">Doğanın kozmik enerjisiyle bağ kurarak ruhsal dengeyi sağlayın. Elementlerin şifa gücünü keşfedin.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">5 dakika okuma</span>
+              <span className="text-[var(--accent-green)] font-semibold group-hover:translate-x-1 transition-transform">Devamını Oku →</span>
+            </div>
+          </div>
+          
+          <div className="card group cursor-pointer transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+            <img src="/blog-confidence.jpg" alt="Günlük Pratikler" className="w-full h-48 object-cover mb-4 rounded-lg" />
+            <h3 className="text-xl font-semibold mb-3 text-[var(--accent-green)]">Günlük Kozmik Enerji Pratikleri</h3>
+            <p className="text-gray-600 mb-4">Günlük hayatınızda kozmik enerjiyi nasıl kullanabileceğinizi öğrenin. Basit ama etkili teknikler.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-gray-500">4 dakika okuma</span>
+              <span className="text-[var(--accent-green)] font-semibold group-hover:translate-x-1 transition-transform">Devamını Oku →</span>
+            </div>
+          </div>
+        </div>
+        
+        <div className="text-center mt-12">
+          <a href="#contact" className="button-modern">
+            Tüm Blog Yazılarını Görüntüle
+          </a>
+        </div>
+      </section>
+
+      {/* İletişim */}
+      <section id="contact" className="section">
+        <h2 className="text-3xl font-bold mb-8 text-center">İletişim</h2>
+        <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
+          <a href="https://wa.me/905347353676" target="_blank" rel="noopener noreferrer" className="button-modern flex items-center justify-center gap-2 text-lg">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp ile İletişim
+          </a>
+          <a href="mailto:info@kozmikenerji.com" className="button-modern flex items-center justify-center gap-2 text-lg">
+            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#fff" strokeWidth="2"/><path d="M3 7l9 6 9-6" stroke="#fff" strokeWidth="2"/></svg>
+            E-posta ile İletişim
+          </a>
+        </div>
+        <div className="card max-w-xl mx-auto">
+          <form className="flex flex-col gap-4">
+            <input type="text" placeholder="Adınız Soyadınız" className="p-3 rounded-lg border border-[#e0e0e0]" required />
+            <input type="email" placeholder="E-posta Adresiniz" className="p-3 rounded-lg border border-[#e0e0e0]" required />
+            <textarea placeholder="Mesajınız" rows={5} className="p-3 rounded-lg border border-[#e0e0e0]" required></textarea>
+            <button type="submit" className="button-modern">Mesajı Gönder</button>
+          </form>
+          <div className="mt-6 text-center text-sm text-gray-500">
+            <div><strong>Adres:</strong> Erzurum</div>
+            <div><strong>Telefon:</strong> +90 534 735 3676</div>
+            <div><strong>E-posta:</strong> info@kozmikenerji.com</div>
+          </div>
+        </div>
+      </section>
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
+  <a href="https://wa.me/905347353676" target="_blank" rel="noopener noreferrer"
+     className="w-16 h-16 flex items-center justify-center rounded-full shadow-lg bg-[#25D366] text-white hover:scale-110 hover:bg-[#128C7E] transition-all duration-200 border-4 border-white">
+    <svg width="36" height="36" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="16" r="16" fill="#25D366"/>
+      <path d="M22.5 17.7c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2.1-.4 0-.5-.1-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5-.2 0-.4 0-.6 0-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4 0-.1-.3-.2-.6-.3z" fill="#fff"/>
+    </svg>
+  </a>
+  <span className="bg-white text-[#25D366] font-bold px-3 py-1 rounded-full shadow text-sm border border-[#25D366]">WhatsApp</span>
+</div>
+    </main>
+  );
+}
