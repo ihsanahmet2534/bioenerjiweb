@@ -321,10 +321,10 @@ export default function Home() {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors"
+            className="md:hidden p-3 text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors rounded-lg hover:bg-blue-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
                 <path d="M6 18L18 6M6 6l12 12"/>
               ) : (
@@ -336,22 +336,22 @@ export default function Home() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-white/20">
-            <div className="flex flex-col py-4 px-6 space-y-3">
-              <a href="#hero" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">Anasayfa</a>
-              <a href="#about" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">Hakkımızda</a>
-              <a href="#services" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">Hizmetler</a>
-              <a href="#certificates" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">Sertifikalar</a>
-              <a href="#blogs" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">Blog</a>
-              <a href="#video" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">Tanıtım Videosu</a>
-              <a href="#contact" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-2 font-semibold">İletişim</a>
+          <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-white/20 shadow-lg">
+            <div className="flex flex-col py-6 px-6 space-y-4">
+              <a href="#hero" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Anasayfa</a>
+              <a href="#about" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Hakkımızda</a>
+              <a href="#services" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Hizmetler</a>
+              <a href="#certificates" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Sertifikalar</a>
+              <a href="#blogs" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Blog</a>
+              <a href="#video" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Tanıtım Videosu</a>
+              <a href="#contact" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">İletişim</a>
             </div>
           </div>
         )}
       </nav>
 
       {/* HERO */}
-      <section id="hero" className="relative min-h-[80vh] flex flex-col items-center justify-center text-center py-20 px-4 overflow-hidden">
+      <section id="hero" className="relative min-h-[70vh] sm:min-h-[80vh] flex flex-col items-center justify-center text-center py-12 sm:py-16 md:py-20 px-4 overflow-hidden">
         {/* Background Images Slider */}
         <div className="absolute inset-0">
           <div className="relative w-full h-full">
@@ -393,20 +393,20 @@ export default function Home() {
           <div className="transition-all duration-1000 ease-in-out">
             {heroImageIndex === 0 && (
               <div className="hero-text-enter" style={{opacity: 1, transform: 'translateY(0)'}}>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Bioenerji Seansı</h1>
-                <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Enerji blokajlarını çözerek beden-zihin-ruh dengesini yeniden kurun. Bioenerji seanslarıyla içsel denge ve huzura adım atın.</p>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white drop-shadow-2xl px-4" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Bioenerji Seansı</h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal px-4" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Enerji blokajlarını çözerek beden-zihin-ruh dengesini yeniden kurun. Bioenerji seanslarıyla içsel denge ve huzura adım atın.</p>
               </div>
             )}
             {heroImageIndex === 1 && (
               <div className="hero-text-enter" style={{opacity: 1, transform: 'translateY(0)'}}>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Nefes & Meditasyon</h1>
-                <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Doğru nefes ve meditasyon teknikleriyle huzur ve içsel ferahlık. Zihninizi sakinleştirerek içsel huzuru keşfedin.</p>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white drop-shadow-2xl px-4" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Nefes & Meditasyon</h1>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal px-4" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Doğru nefes ve meditasyon teknikleriyle huzur ve içsel ferahlık. Zihninizi sakinleştirerek içsel huzuru keşfedin.</p>
               </div>
             )}
                          {heroImageIndex === 2 && (
                <div className="hero-text-enter" style={{opacity: 1, transform: 'translateY(0)'}}>
-                 <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Pozitif Enerji ile Gelen Şifa</h1>
-                 <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Pozitif enerji akışıyla bütünsel yenilenme ve ruhsal denge. Kozmik enerji teknikleriyle beden, zihin ve ruhunuzu dengeye getirin.</p>
+                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 text-white drop-shadow-2xl px-4" style={{letterSpacing: '0.02em', textShadow: '2px 2px 4px rgba(0,0,0,0.8)', fontWeight: '600'}}>Pozitif Enerji ile Gelen Şifa</h1>
+                 <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 md:mb-8 max-w-2xl mx-auto text-white drop-shadow-lg font-normal px-4" style={{textShadow: '1px 1px 2px rgba(0,0,0,0.6)', fontWeight: '400'}}>Pozitif enerji akışıyla bütünsel yenilenme ve ruhsal denge. Kozmik enerji teknikleriyle beden, zihin ve ruhunuzu dengeye getirin.</p>
                </div>
              )}
           </div>
@@ -414,12 +414,12 @@ export default function Home() {
         </div>
 
         {/* Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 sm:space-x-3">
           {[0, 1, 2].map((index) => (
             <button
               key={index}
               onClick={() => setHeroImageIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === heroImageIndex 
                   ? 'bg-white scale-125' 
                   : 'bg-white/50 hover:bg-white/75'
@@ -431,18 +431,18 @@ export default function Home() {
         {/* Navigation Arrows */}
         <button
           onClick={() => setHeroImageIndex(prev => prev === 0 ? 2 : prev - 1)}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
         >
-          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M15 18l-6-6 6-6"/>
           </svg>
         </button>
         
         <button
           onClick={() => setHeroImageIndex(prev => prev === 2 ? 0 : prev + 1)}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
+          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 sm:w-12 sm:h-12 bg-white/20 backdrop-blur rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-200"
         >
-          <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
             <path d="M9 18l6-6-6-6"/>
           </svg>
         </button>
@@ -1185,18 +1185,18 @@ export default function Home() {
       {/* İletişim */}
       <section id="contact" className="section">
         <h2 className="text-3xl font-bold mb-8 text-center">İletişim</h2>
-        <div className="flex flex-col md:flex-row gap-4 justify-center mb-8">
-          <a href="https://wa.me/905347353676" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <span className="text-2xl">📱</span>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <a href="https://wa.me/905347353676" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-20 h-20 sm:w-16 sm:h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <span className="text-3xl sm:text-2xl">📱</span>
           </a>
-          <a href="tel:+905339187391" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <span className="text-2xl">📞</span>
+          <a href="tel:+905339187391" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-20 h-20 sm:w-16 sm:h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <span className="text-3xl sm:text-2xl">📞</span>
           </a>
-          <a href="mailto:holistikyasamkocu369@gmail.com" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <span className="text-2xl">✉️</span>
+          <a href="mailto:holistikyasamkocu369@gmail.com" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-20 h-20 sm:w-16 sm:h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <span className="text-3xl sm:text-2xl">✉️</span>
           </a>
-          <a href="https://instagram.com/kozmikenerji" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <span className="text-2xl">📷</span>
+          <a href="https://instagram.com/kozmikenerji" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white flex items-center justify-center w-20 h-20 sm:w-16 sm:h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <span className="text-3xl sm:text-2xl">📷</span>
           </a>
         </div>
         <div className="card max-w-xl mx-auto">
