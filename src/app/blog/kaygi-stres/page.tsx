@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 
-export default function NefesKocluguBlog() {
+export default function PozitifEnerjiBlog() {
   return (
     <div className="min-h-screen bg-[var(--background)]">
       <div className="max-w-4xl mx-auto px-6 py-12">
@@ -11,14 +11,14 @@ export default function NefesKocluguBlog() {
             ← Ana Sayfaya Dön
           </Link>
           <h1 className="text-4xl md:text-5xl font-bold text-[var(--accent-green)] mt-6 mb-4">
-            Kozmik Enerji, Biyoenerji, Nefes, Meditasyon ve EFT: Holistik Şifanın Kapsamlı Gücü
+            Pozitif Enerji ve Kadim Bilgelik Yöntemleriyle Sağlıklı, Dengeli ve Uzun Bir Yaşam
           </h1>
           <div className="flex items-center gap-4 text-gray-600">
-            <span>5 dakika okuma</span>
+            <span>8 dakika okuma</span>
             <span>•</span>
-            <span>Kozmik Enerji</span>
+            <span>Pozitif Enerji</span>
             <span>•</span>
-            <span>Nefes Koçluğu</span>
+            <span>Kadim Bilgelik</span>
           </div>
         </div>
 
@@ -26,7 +26,7 @@ export default function NefesKocluguBlog() {
         <div className="mb-8">
           <img 
             src="/blog-anxiety.jpg" 
-            alt="Nefes Koçluğu ve Kozmik Enerji" 
+            alt="Pozitif Enerji ve Kadim Bilgelik" 
             className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
           />
         </div>
@@ -35,102 +35,142 @@ export default function NefesKocluguBlog() {
         <article className="prose prose-lg max-w-none">
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              Holistik şifa, bireyi bir bütün olarak ele alan, fiziksel, zihinsel, duygusal ve ruhsal sağlığın birbiriyle ayrılmaz bir bütün olduğunu savunan bir yaklaşımdır. Bu bütünlüğü sağlamak için kullanılan en güçlü araçlardan bazıları <strong>kozmik enerji</strong>, <strong>biyoenerji</strong>, <strong>nefes teknikleri</strong>, <strong>meditasyon</strong> ve <strong>EFT (Duygusal Özgürleşme Teknikleri)</strong> gibi yöntemlerdir. Bu teknikler, bedenin ve zihnin doğal iyileşme mekanizmalarını harekete geçirerek yaşamın her alanında derin ve kalıcı bir dönüşüm sağlar.
+              Modern dünyanın hızlı temposu, yoğun sorumluluklar ve sürekli bilgi bombardımanı, zihnimizi ve bedenimizi yıpratırken, ilişkilerimizi ve yaşam enerjimizi de olumsuz etkileyebiliyor. Oysa kadim bilgelik yöntemleri ve pozitif enerji uygulamalarıyla hem enerjimizi yükseltmek hem de hayatı dolu dolu, huzurla ve sağlıkla yaşamak mümkün.
+            </p>
+
+            <p className="text-gray-700 leading-relaxed mb-8">
+              Bu çalışmalar, tıbba alternatif değil, tam tersine onun yanında yürüyen; kişinin yaşam kalitesini, iyileşme motivasyonunu ve enerji seviyesini yükselten tamamlayıcı uygulamalardır.
             </p>
 
             <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
-              Tedaviye ve Rahatsızlıklara Pozitif Katkıları
+              Yaşam Enerjisini Yükseltmenin Önemi
             </h2>
             
             <p className="text-gray-700 leading-relaxed mb-6">
-              Bu holistik teknikler, bir hastalık teşhisi veya tedavisi olmaktan ziyade, çeşitli rahatsızlıkların temelinde yatan enerjisel ve duygusal blokajları çözmeye odaklanır.
+              Enerji, yaşamın görünmez yakıtıdır. Varlığımızı ayakta tutan, bizi canlı ve yaratıcı kılan güç sadece fiziksel besinlerden değil; düşüncelerimizden, duygularımızdan ve çevremizdeki enerjiden de beslenir.
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Fiziksel Rahatsızlıklar
-            </h3>
-            
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong>, bedenin doğal enerji akışını dengeleyerek bağışıklık sistemini güçlendirir ve iyileşme sürecini hızlandırır. <strong>Nefes teknikleri</strong> ve <strong>meditasyon</strong>, stresi ve kaygıyı azaltarak bedenin gevşemesine ve kronik ağrı, migren, sindirim sorunları gibi rahatsızlıkların hafiflemesine yardımcı olur. <strong>EFT</strong> ise fiziksel ağrıların duygusal kök nedenlerini bulup serbest bırakarak kalıcı rahatlama sağlayabilir.
+              Pozitif enerji uygulamaları, bu yaşam gücünü artırarak bedenimizin, zihnimizin ve ruhumuzun uyum içinde çalışmasını sağlar.
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Zihinsel ve Duygusal Denge
-            </h3>
-            
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Bu tekniklerin en belirgin faydası, zihinsel ve duygusal sağlığa olan katkılarıdır. <strong>Meditasyon</strong>, zihni sakinleştirerek odaklanmayı artırır ve negatif düşünce kalıplarını kırmaya yardımcı olur. <strong>EFT</strong>, travmatik anıların ve negatif duygusal yüklerin serbest bırakılmasını sağlayarak kaygı, depresyon ve fobilerin etkilerini azaltabilir. Bu süreçler, kişinin daha güçlü, dengeli ve huzurlu hissetmesini sağlar.
+            <p className="text-gray-700 leading-relaxed mb-8">
+              Günlük pratikler, meditasyonlar, nefes egzersizleri, çi (Qi) enerjisi çalışmaları ve kozmik enerji teknikleri ile frekansımızı yükseltmek mümkündür.
             </p>
 
             <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
-              Ruhsal ve Bedensel Gençleştirici Faydaları
+              Kadim Öğretiler ve Çi (Qi) Enerjisi
             </h2>
             
             <p className="text-gray-700 leading-relaxed mb-6">
-              Bu holistik teknikler, sadece mevcut rahatsızlıkları iyileştirmekle kalmaz, aynı zamanda ruhsal bir uyanışa ve bedensel bir gençleşmeye de katkıda bulunur.
+              Kadim Çin, Hint ve Tibet öğretilerinde, insanın sağlıklı ve uzun ömürlü olmasının temelinde Çi (Qi) adı verilen yaşam enerjisinin dengesi bulunur.
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Ruhsal Gelişim
-            </h3>
-            
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Kozmik enerji</strong>, <strong>biyoenerji</strong> ve <strong>meditasyon</strong> pratikleri, bireyin içsel bilgeliğiyle ve evrensel enerjiyle bağlantı kurmasını sağlar. Bu, daha yüksek bir farkındalık düzeyine ulaşmaya, yaşam amacını keşfetmeye ve derin bir içsel huzur hissetmeye yardımcı olur. Bu süreç, kişinin ruhsal yolculuğunda önemli bir dönüşüm yaratır.
+              Çi enerjisi, evrende var olan yaşam akışıdır. Bu enerji, bedenimizdeki meridyenler ve enerji merkezleri (çakralar) aracılığıyla akar.
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Bedensel Gençleşme
-            </h3>
-            
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Kronik stres, bedenin erken yaşlanmasının en büyük nedenlerinden biridir. <strong>Nefes teknikleri</strong> ve <strong>meditasyon</strong>, stresi azaltarak hücrelerin yenilenmesine ve bedenin daha canlı kalmasına katkıda bulunur. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise bedendeki enerji akışını artırarak hücrelerin ve dokuların daha iyi beslenmesini sağlar. Bu da cildin daha parlak ve genç görünmesine yardımcı olabilir.
+            <p className="text-gray-700 leading-relaxed mb-8">
+              Dengesizliği; hastalık, yorgunluk, huzursuzluk ve yaşamsal isteksizlik olarak kendini gösterir. Yaşam Enerjisi akışını açan uygulamalar sayesinde, hem bedenin hem de zihnin genç ve dinç kalmasını sağlar.
             </p>
-
-            <hr className="my-8 border-gray-300" />
 
             <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
-              Yaşam Alanlarına Pozitif Katkıları
+              Tıbbi Tedavilerin Yanında Destekleyici Rol
             </h2>
             
             <p className="text-gray-700 leading-relaxed mb-6">
-              Bu teknikler, bireyin içsel dünyasındaki dengeyi sağlayarak dış dünyayla olan etkileşimini de olumlu yönde etkiler.
+              Pozitif enerji uygulamaları, doktorunuzun önerdiği tedavilerin yerine geçmez; ancak iyileşme sürecinizi daha rahat, huzurlu ve güçlü geçirmenize yardımcı olabilir.
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Kilo Kontrolü
-            </h3>
+            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+              <li>Stres ve kaygıyı azaltarak bağışıklık sistemini destekler.</li>
+              <li>Duygusal denge sağlayarak kişinin tedaviye uyumunu artırır.</li>
+              <li>Hücre yenilenmesini destekleyen yüksek frekanslı bir enerji ortamı oluşturur.</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-8">
+              Örneğin kemoterapi, cerrahi operasyon, kronik rahatsızlık tedavileri gibi süreçlerde, enerji dengeleme çalışmaları hastanın ruhsal dayanıklılığını güçlendirebilir.
+            </p>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Stresin Zararları ve Enerji Blokajları
+            </h2>
             
             <p className="text-gray-700 leading-relaxed mb-6">
-              Kilo kontrolü, sadece fiziksel bir durum değildir; duygusal yeme alışkanlıkları ve stres gibi faktörlerle yakından ilişkilidir. <strong>Meditasyon</strong> ve <strong>nefes teknikleri</strong>, stresi azaltarak duygusal yeme krizlerini önleyebilir. <strong>EFT</strong> ise kilo alma ve beden imajı ile ilgili bilinçaltındaki negatif inançları ve duygusal blokajları çözerek daha sağlıklı yeme alışkanlıkları geliştirilmesine destek olur. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise bedenin metabolizmasını dengeleyerek kilo verme sürecine pozitif katkı sağlar.
+              Günümüzde stres, en büyük enerji hırsızlarından biridir. Uzun süreli stres;
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Bolluk ve Bereket
-            </h3>
+            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-6 space-y-2">
+              <li>Bağışıklık sistemini zayıflatır,</li>
+              <li>Hormon dengesini bozar,</li>
+              <li>Hücresel yaşlanmayı hızlandırır,</li>
+              <li>Zihin bulanıklığına, motivasyon düşüklüğüne ve duygusal dengesizliğe neden olur.</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-8">
+              Stresin yarattığı bu durum, enerji blokajları olarak tanımlanır. Blokajlar; geçmiş travmalar, olumsuz inançlar, bastırılmış duygular ve toksik çevre koşullarıyla güçlenir. Pozitif enerji uygulamaları bu blokajları çözer, enerji akışını yeniden serbest hale getirir.
+            </p>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Ruh–Beden–Zihin Uyumunun Gücü
+            </h2>
             
             <p className="text-gray-700 leading-relaxed mb-6">
-              Holistik yaklaşıma göre, bolluk ve bereket sadece maddi zenginlik değildir; yaşamın her alanında tatmin edici ve zengin bir deneyime sahip olmaktır. <strong>EFT</strong>, para ve başarı ile ilgili bilinçaltındaki negatif inançları temizleyerek bolluk bilincinin oluşmasına katkıda bulunur. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise evrenin sınırsız bolluğuna açılmamızı sağlar. Bu sayede kişi, bolluğu çekmeye daha açık hale gelir ve finansal durumunun yanı sıra hayatına giren fırsatları, şansları ve güzel deneyimleri de artırır.
+              Gerçek sağlık, yalnızca hastalıkların yokluğu değil; ruh, beden ve zihnin uyumlu çalışmasıdır.
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              İlişkiler
-            </h3>
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="bg-[var(--accent-light)] p-4 rounded-lg">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-2">Beden</h4>
+                <p className="text-gray-700 text-sm">Doğru beslenme, düzenli hareket, kaliteli uyku ile beslenir.</p>
+              </div>
+              <div className="bg-[var(--accent-light)] p-4 rounded-lg">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-2">Zihin</h4>
+                <p className="text-gray-700 text-sm">Meditasyon, bilinçli nefes, farkındalık pratikleriyle dinginleşir.</p>
+              </div>
+              <div className="bg-[var(--accent-light)] p-4 rounded-lg">
+                <h4 className="font-semibold text-[var(--accent-green)] mb-2">Ruh</h4>
+                <p className="text-gray-700 text-sm">Sevgi, şefkat, bağışlama ve yüksek frekanslı duygularla beslenir.</p>
+              </div>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed mb-8">
+              Bu uyumu yakalayan kişi; her gün kendini daha genç, sağlıklı, huzurlu ve dingin hisseder.
+            </p>
+
+            <h2 className="text-3xl font-bold text-[var(--accent-green)] mb-6">
+              Sağlıklı ve Uzun Ömürlülüğün Sırrı
+            </h2>
             
             <p className="text-gray-700 leading-relaxed mb-6">
-              İlişkiler, enerji alışverişinin en yoğun yaşandığı alanlardır. Bu teknikler, hem kendimizle olan ilişkimizi hem de başkalarıyla kurduğumuz bağları dönüştürebilir. <strong>Meditasyon</strong>, kendi içimizdeki dengeyi sağlayarak kendimize olan sevgimizi ve saygımızı artırır. Bu da başkalarının bize olan tutumunu olumlu yönde etkiler. <strong>EFT</strong> ve <strong>nefes teknikleri</strong>, ilişkilerde yaşanan anlaşmazlıkların ve çatışmaların temelinde yatan duygusal ve enerjisel blokajların çözülmesine yardımcı olur. Bu sayede, empati yeteneğimiz gelişir ve daha uyumlu, sevgi dolu ve derin bağlar kurabiliriz.
+              Kadim bilgelik yöntemleri ve modern bilim, uzun ömürlülüğün sırrının enerji dengesi, stres yönetimi ve duygusal sağlıklılık olduğunu ortaya koyuyor. Düzenli pozitif enerji çalışmaları;
             </p>
 
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Başarı
-            </h3>
-            
-            <p className="text-gray-700 leading-relaxed mb-6">
-              Başarı, sadece hedeflere ulaşmak değil, aynı zamanda kişisel potansiyeli en üst seviyede kullanabilmektir. <strong>Meditasyon</strong>, zihinsel berraklığı ve odaklanmayı artırarak başarıya giden yolda önemli bir destek sağlar. <strong>EFT</strong>, başarının önündeki korkuları, şüpheleri ve engelleri ortadan kaldırarak motivasyonumuzu güçlendirir. <strong>Kozmik enerji</strong> ve <strong>biyoenerji</strong> ise yaratıcılığımızı ve enerjimizi artırarak hedeflerimize daha kararlı bir şekilde ilerlememize yardımcı olur. Bu sayede kişi, zorluklar karşısında daha dirençli ve çözüm odaklı hale gelir ve başarıya giden yol daha akıcı ve kolay hale gelir.
-            </p>
+            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-8 space-y-2">
+              <li>Hücre yenilenmesini destekler,</li>
+              <li>Bağışıklık sistemini güçlendirir,</li>
+              <li>Hormon dengesini korur,</li>
+              <li>İç huzuru ve mutluluğu kalıcı hale getirir.</li>
+            </ul>
 
-            <div className="bg-[var(--accent-light)] p-6 rounded-xl mt-8">
-              <h3 className="text-xl font-semibold text-[var(--accent-green)] mb-6">
-                Kozmik Enerji, Biyoenerji, Nefes, Meditasyon ve EFT: Holistik Şifanın Kapsamlı Gücü
+            <div className="bg-gradient-to-r from-[var(--accent-green)] to-[var(--accent-orange)] p-6 rounded-xl mt-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">💫 Sonuç</h3>
+              <p className="mb-4">
+                Pozitif enerji uygulamaları ve kadim bilgelik yöntemleri tıbbi tedavilerin yerini almaz; ama iyileşme sürecinizi hızlandırabilir, ruhsal dayanıklılığınızı artırabilir ve hayatınıza yüksek bir yaşam enerjisi katabilir. Ruh–beden–zihin uyumunu yakaladığınızda, yalnızca hastalıklarla değil; yaşamın getirdiği her zorlukla daha güçlü baş edebilirsiniz.
+              </p>
+              <p className="text-sm opacity-90">
+                <strong>Not:</strong> Bu çalışmalar tıbbi tedavinin yerine geçmez. Doktorunuzun önerdiği yöntemlerle birlikte uygulanarak, yaşam kalitesine ve iyileşme sürecine pozitif katkı sağlar.
+              </p>
+            </div>
+
+            <div className="text-center mt-8">
+              <p className="text-gray-600 mb-4">Sevgilerimle</p>
+              <p className="text-[var(--accent-green)] font-semibold text-lg">Özlem Gündüz</p>
+            </div>
+
+            <div className="bg-[var(--accent-light)] p-6 rounded-xl mt-8 text-center">
+              <h3 className="text-xl font-semibold text-[var(--accent-green)] mb-4">
+                Pozitif Enerji Çalışmalarıyla Sağlıklı Dengeli Bir Yaşam
               </h3>
               <Link 
                 href="/#contact" 
@@ -141,8 +181,6 @@ export default function NefesKocluguBlog() {
             </div>
           </div>
         </article>
-
-
       </div>
     </div>
   );

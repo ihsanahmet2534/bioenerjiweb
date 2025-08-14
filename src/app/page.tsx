@@ -311,7 +311,6 @@ export default function Home() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-6 text-base font-semibold">
             <a href="#hero" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Anasayfa</a>
-            <a href="#about" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Hakkımızda</a>
             <a href="#services" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Hizmetler</a>
             <a href="#certificates" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Sertifikalar</a>
             <a href="#blogs" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-all duration-300 hover:scale-105">Blog</a>
@@ -339,7 +338,6 @@ export default function Home() {
           <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-white/20 shadow-lg">
             <div className="flex flex-col py-6 px-6 space-y-4">
               <a href="#hero" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Anasayfa</a>
-              <a href="#about" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Hakkımızda</a>
               <a href="#services" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Hizmetler</a>
               <a href="#certificates" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Sertifikalar</a>
               <a href="#blogs" className="text-[var(--accent-green)] hover:text-[var(--accent-orange)] transition-colors py-3 px-4 font-semibold rounded-lg hover:bg-blue-50">Blog</a>
@@ -450,66 +448,43 @@ export default function Home() {
 
       {/* Hakkımızda */}
       <section id="about" className="section">
-        <h2 className="text-3xl font-bold mb-4 text-center">Hakkımda</h2>
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-8">
-            <h3 className="text-2xl font-bold text-[var(--accent-green)] mb-4">
-              Özlem Gündüz
-            </h3>
-            <h4 className="text-xl font-semibold text-gray-700 mb-2">
-              Holistik yaşam koçu, longevity (uzun ömürlülük) danışmanı
-            </h4>
-            <h5 className="text-lg font-medium text-gray-600 mb-6">
-              (EFT, nefes, meditasyon, yüksek yaşam enerjisi uygulamaları)
-            </h5>
-          </div>
-        
-        <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20 mb-8">
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            {/* Yaşam Koçu Görseli */}
-            <div className="flex-shrink-0">
-              <div className="relative">
-                <img 
-                  src="/portrait.jpg" 
-                  alt="Özlem Gündüz - Yaşam Koçu" 
-                  className="w-64 h-64 rounded-full object-cover shadow-2xl border-4 border-white"
-                />
-                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[var(--accent-green)] to-[var(--accent-orange)] text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
-                  Yaşam Koçu
+          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border border-white/20 mb-8 max-w-4xl mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8">
+              {/* Yaşam Koçu Görseli */}
+              <div className="flex-shrink-0">
+                <div className="relative">
+                  <img 
+                    src="/portrait.jpg" 
+                    alt="Özlem Gündüz - Yaşam Koçu" 
+                    className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full object-cover shadow-2xl border-4 border-white"
+                  />
+                </div>
+                
+                {/* Fotoğrafın altına başlıklar - sola yatık ve fotoğraf genişliğinde */}
+                <div className="text-left mt-6 w-full" style={{ maxWidth: 'inherit' }}>
+                  <h3 className="text-lg sm:text-xl font-bold text-[var(--accent-green)] mb-2 leading-tight">
+                    Özlem Gündüz
+                  </h3>
+                  <h4 className="text-xs sm:text-sm font-semibold text-[var(--accent-green)] leading-tight">
+                    Holistik Koç (Bioenerji, Kozmik Enerji Uzmanı, Longevity Danışmanı)
+                  </h4>
                 </div>
               </div>
-              <div className="text-center mt-4">
-                <p className="text-sm text-gray-600 font-medium">
-                  (Enerji Uzmanı, EFT, Nefes & Meditasyon Teknikleri Uygulayıcısı)
-                </p>
+              
+              {/* Sağ taraf - Sadece metin alanı */}
+              <div className="flex-1 text-center lg:text-left">
+                {/* Pozitif enerji açıklaması */}
+                <div className="bg-gray-50 p-6 rounded-lg">
+                  <p className="text-gray-700 text-base leading-relaxed">
+                    Pozitif enerji uygulamaları ve kadim bilgelik yöntemleriyle, enerjimizi yükseltmek, hayatı dolu dolu yaşamak, hayatımızın ilişkilerimizin kalitesini arttırmak, ruhsal bedensel zihinsel blokajlarımızdan kurtulmak, ruh beden zihin uyumunu yakalamak, her gün kendini daha genç daha sağlıklı daha dingin daha huzurlu hissetmek mümkün.
+                  </p>
+                </div>
               </div>
-            </div>
-             
-            {/* Metin İçeriği */}
-            <div className="flex-1">
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                1972 Mersin doğumluyum. En büyük gururum kalbimin ilhamı muhteşem bir kızım var.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Yıllarca tekstil sektöründe edindiğim tecrübelerin ardından, şimdi kişisel gelişim yolculuğundayım.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                Kişisel gelişim, pozitif enerji, nefes, EFT, meditasyon tekniklerini kullanarak kişilerin bedensel, ruhsal, zihinsel dengelerini kazanmalarına yardımcı oluyorum.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                Beraberce pozitif düşüncenin, pozitif enerjinin, pozitif farkındalığa ulaşmanın mutluluğunu deneyimliyoruz. Sevgilerimle.
-              </p>
             </div>
           </div>
         </div>
-        
-        <div className="text-center">
-          <Link href="/about" className="button-modern inline-block">
-            Detaylı Bilgi İçin Tıklayın
-          </Link>
-        </div>
-      </div>
-    </section>
+      </section>
 
       {/* Sertifikalar */}
       <section id="certificates" className="section">
@@ -845,15 +820,14 @@ export default function Home() {
                   </span>
                 </div>
                                       <h3 className="text-2xl md:text-3xl font-bold text-[var(--accent-green)] mb-4 leading-tight">
-                        Kozmik Enerji, Biyoenerji, Nefes, Meditasyon ve EFT: Holistik Şifanın Kapsamlı Gücü
-                      </h3>
+                  Pozitif Enerji ve Kadim Bilgelik Yöntemleriyle Sağlıklı, Dengeli ve Uzun Bir Yaşam
+                </h3>
                 <div className="text-sm text-gray-500 mb-4 space-y-1">
                   <p>Makaleler</p>
                   <p>Yazar: Özlem Gündüz</p>
-                  <p>Şubat 15, 2025</p>
                 </div>
                 <p className="text-gray-600 leading-relaxed mb-6">
-                  Doğru nefes teknikleriyle kozmik mucize enerjiyi hayatınıza entegre edin. Diyafram nefesi ve bioenerji ile ruhsal dönüşüm. Nefes, hem bedeni hem zihni yeniden programlamanın anahtarıdır.
+                  Modern dünyanın hızlı temposu, yoğun sorumluluklar ve sürekli bilgi bombardımanı, zihnimizi ve bedenimizi yıpratırken, ilişkilerimizi ve yaşam enerjimizi de olumsuz etkileyebiliyor. Oysa kadim bilgelik yöntemleri ve pozitif enerji uygulamalarıyla hem enerjimizi yükseltmek hem de hayatı dolu dolu, huzurla ve sağlıkla yaşamak mümkün. Bu çalışmalar, tıbba alternatif değil, tam tersine onun yanında yürüyen; kişinin yaşam kalitesini, iyileşme motivasyonunu ve enerji seviyesini yükselten tamamlayıcı uygulamalardır.
                 </p>
                 <Link href="/blog/kaygi-stres" className="inline-flex items-center text-black font-semibold hover:text-[var(--accent-green)] transition-colors group">
                   Devamını Oku 
@@ -867,52 +841,14 @@ export default function Home() {
               <div className="lg:w-80 lg:flex-shrink-0">
                 <img 
                   src="/blog-anxiety.jpg" 
-                  alt="Nefes Koçluğu" 
+                  alt="Pozitif Enerji ve Kadim Bilgelik" 
                   className="w-full h-64 lg:h-full object-cover"
                 />
               </div>
             </div>
           </div>
 
-          {/* Blog 2 */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border border-white/20 overflow-hidden hover:shadow-2xl transition-all duration-300">
-            <div className="flex flex-col lg:flex-row">
-              {/* Sol taraf - Metin içeriği */}
-              <div className="flex-1 p-8">
-                <div className="mb-4">
-                  <span className="inline-block bg-[var(--accent-green)] text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                    Blog
-                  </span>
-                </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-[var(--accent-green)] mb-4 leading-tight">
-                  Kozmik Enerji ile Şifa ve Gelişim
-                </h3>
-                <div className="text-sm text-gray-500 mb-4 space-y-1">
-                  <p>Makaleler</p>
-                  <p>Yazar: Özlem Gündüz</p>
-                  <p>Şubat 12, 2025</p>
-                </div>
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  Evrenden gelen kozmik enerjiyi kullanarak bedensel ve ruhsal blokajları kaldırın. Mucize bio enerji ile yenilenme. Kozmik enerji, doğanın en güçlü şifa kaynağıdır.
-                </p>
-                <Link href="/blog/ozguven-gelistirme" className="inline-flex items-center text-black font-semibold hover:text-[var(--accent-green)] transition-colors group">
-                  Devamını Oku 
-                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-              
-              {/* Sağ taraf - Görsel */}
-              <div className="lg:w-80 lg:flex-shrink-0">
-                <img 
-                  src="/blog-relationships.jpg" 
-                  alt="Kozmik Enerji" 
-                  className="w-full h-64 lg:h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
+
         </div>
         
         <div className="text-center mt-12">

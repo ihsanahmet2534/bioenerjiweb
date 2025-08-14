@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bioenerji ile Doğanın Şifası - Evrensel Yaşam Enerjisi Merkezi",
-  description: "Bioenerji uzmanı ile evrenin enerjisini keşfedin. Doğayla buluşun, nefes alın, huzuru ve içsel ferahlığı yaşayın. Beden, zihin ve ruh için bütünsel şifa!",
+  title: "Pozitif Enerji Çalışmalarıyla Sağlıklı Dengeli Bir Yaşam",
+  description: "Pozitif enerji çalışmaları ve kadim bilgelik yöntemleriyle sağlıklı, dengeli ve uzun bir yaşam için bioenerji seansları.",
   icons: {
     icon: "/favicon.ico",
   },

@@ -1,8 +1,8 @@
 export default function Head() {
   return (
     <>
-      <title>Bioenerji ile Doğanın Şifası - Evrensel Yaşam Enerjisi Merkezi</title>
-      <meta name="description" content="Bioenerji uzmanı ile evrenin enerjisini keşfedin. Doğayla buluşun, nefes alın, huzuru ve içsel ferahlığı yaşayın. Beden, zihin ve ruh için bütünsel şifa!" />
+      <title>Pozitif Enerji Çalışmalarıyla Sağlıklı Dengeli Bir Yaşam</title>
+      <meta name="description" content="Pozitif enerji çalışmaları ve kadim bilgelik yöntemleriyle sağlıklı, dengeli ve uzun bir yaşam için bioenerji seansları." />
       <link rel="icon" href="/favicon.ico" />
       <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16992672093"></script>
       <script
