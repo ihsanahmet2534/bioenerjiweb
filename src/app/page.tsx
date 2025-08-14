@@ -159,13 +159,12 @@ export default function Home() {
       details: {
         description: "Biyoenerji, evrensel yaşam enerjisini kullanarak bedensel, zihinsel ve duygusal dengeyi yeniden kuran güçlü bir şifa yöntemidir. Bu enerji akışı, vücudunuzdaki enerji blokajlarını çözerek doğal şifa sürecini destekler.",
         benefits: [
-          "Ağrı yönetimi",
+          "Ağrıların giderilmesine pozitif katkı",
           "Stres ve anksiyete azalması",
-          "Enerji düzeylerinin artırılması",
           "Bağışıklık sisteminin güçlendirilmesi",
           "Duygusal denge ve pozitif ruh hali",
           "Uyku kalitesinin artırılması",
-          "Sindirim problemlerinin iyileştirilmesi"
+          "Bedensel hastalıkların iyileşmesine pozitif katkı"
         ],
         duration: "40 dakika",
         frequency: "Haftada 1-2 seans önerilir",
@@ -489,7 +488,7 @@ export default function Home() {
       {/* Sertifikalar */}
       <section id="certificates" className="section">
         <h2 className="text-3xl font-bold mb-8 text-center">Sertifikalarım</h2>
-        <p className="text-lg text-center max-w-3xl mx-auto mb-12">Profesyonel eğitimlerimizi ve uzmanlık alanlarımızı gösteren sertifikalarımızı inceleyin. Yoga eğitmenliği, nefes koçluğu ve yaşam koçluğu alanlarında e-devlet onaylı sertifikalarımızla hizmet veriyoruz. Her birine tıklayarak büyük boyutta görüntüleyebilirsiniz.</p>
+        <p className="text-lg text-center max-w-3xl mx-auto mb-12">Pozitif enerji eğitmenliği, Yoga eğitmenliği, nefes koçluğu EFT terapisi, ve yaşam koçluğu alanlarında e-devlet onaylı sertifikalarımla hizmet veriyorum. Her birine tıklayarak görüntüleyebilirsiniz.</p>
         
         <div className="max-w-4xl mx-auto">
           <div className="relative">
